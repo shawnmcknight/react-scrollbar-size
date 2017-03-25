@@ -51,7 +51,7 @@ class MyComponent extends Component {
   }
 }
 ```
-To see a live example, follow these [instructions](https://github.com/STORIS/react-scrollbar-size/blob/master/examples/README.MD).
+To see a live example, follow these [instructions](https://github.com/STORIS/react-scrollbar-size/blob/master/examples/README.md).
 
 ## License
 This project is licensed under the terms of the
