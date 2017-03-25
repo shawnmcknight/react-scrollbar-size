@@ -11,7 +11,7 @@ const styles = {
 	msOverflowStyle: 'scrollbar',
 };
 
-class ScrollbarSizer extends Component {
+class ScrollbarSize extends Component {
 	static propTypes = {
 		onLoad: PropTypes.func,
 		onChange: PropTypes.func,
@@ -19,8 +19,8 @@ class ScrollbarSizer extends Component {
 	}
 
 	static defaultProps = {
-		onLoad: () => {},
-		onChange: () => {},
+		onLoad: null,
+		onChange: null,
 		resizeInterval: 166, // Corresponds to 10 frames at 60 Hz.
 	}
 
@@ -29,8 +29,10 @@ class ScrollbarSizer extends Component {
 			onLoad,
 		} = this.props;
 
-		this.setMeasurements();
-		onLoad(this.measurements);
+		if (onLoad) {
+			this.setMeasurements();
+			onLoad(this.measurements);
+		}
 	}
 
 	componentWillUnmount() {
@@ -45,34 +47,44 @@ class ScrollbarSizer extends Component {
 	}
 
 	handleResize = () => {
-		clearTimeout(this.deferTimer);
-		this.deferTimer = setTimeout(() => {
-			const {
-				onChange,
-			} = this.props;
+		const {
+			onChange,
+		} = this.props;
 
-			const prevMeasurements = this.measurements;
-			this.setMeasurements();
+		if (onChange) {
+			clearTimeout(this.deferTimer);
+			this.deferTimer = setTimeout(() => {
+				const prevMeasurements = this.measurements;
+				this.setMeasurements();
 
-			if (!isEqual(prevMeasurements, this.measurements)) {
-				onChange(this.measurements);
-			}
-		}, this.props.resizeInterval);
+				if (!isEqual(prevMeasurements, this.measurements)) {
+					onChange(this.measurements);
+				}
+			}, this.props.resizeInterval);
+		}
 	}
 
 	render() {
+		const {
+			onChange,
+		} = this.props;
+
 		return (
-			<EventListener
-				target="window"
-				onResize={this.handleResize}
-			>
+			<div>
+				{onChange ?
+					<EventListener
+						target="window"
+						onResize={this.handleResize}
+					/> :
+					null
+				}
 				<div
 					style={styles}
 					ref={(node) => { this.node = node; }}
 				/>
-			</EventListener>
+			</div>
 		);
 	}
 }
 
-export default ScrollbarSizer;
+export default ScrollbarSize;
