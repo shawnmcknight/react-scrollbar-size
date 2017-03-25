@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ScrollbarSize from 'react-scrollbar-size/ScrollbarSize';
+import ScrollbarSize from 'react-scrollbar-size';
 
 const styles = {
 	margin: '1rem',

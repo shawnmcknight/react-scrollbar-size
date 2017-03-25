@@ -1,5 +1,6 @@
 {
   "name": "react-scrollbar-size",
+  "private": true,
   "version": "0.1.0",
   "description": "React component to calculate the size of browser scrollbars",
   "main": "index.js",
@@ -13,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/storis/react-scrollbar-size.git"
+    "url": "git+https://github.com/STORIS/react-scrollbar-size.git"
   },
   "keywords": [
     "react",
@@ -21,7 +22,10 @@
   ],
   "author": "STORIS",
   "license": "MIT",
-  "homepage": "https://github.com/storis/react-scrollbar-size#readme",
+	"bugs": {
+		"url": "https://github.com/STORIS/react-scrollbar-size/issues"
+	},
+  "homepage": "https://github.com/STORIS/react-scrollbar-size#readme",
   "dependencies": {
     "babel-runtime": "^6.23.0",
     "lodash.isequal": "^4.5.0",
@@ -29,6 +33,7 @@
     "react-event-listener": "^0.4.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-eslint": "^7.2.1",
     "babel-plugin-transform-class-properties": "^6.23.0",
