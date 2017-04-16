@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import EventListener from 'react-event-listener';
 import isEqual from 'lodash.isequal';
 
