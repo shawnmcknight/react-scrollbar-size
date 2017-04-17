@@ -1,7 +1,7 @@
 {
   "name": "react-scrollbar-size",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "React component to calculate the size of browser scrollbars",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,13 @@
     "build:babel": "cross-env NODE_ENV=release babel ./src/ --out-dir ./build/ --ignore spec.js",
     "build:copy-files": "babel-node ./scripts/copy-files.js",
     "clean:build": "rimraf build",
+    "lint": "eslint . --cache && echo \"eslint: no lint errors\"",
     "prebuild": "npm run clean:build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "cross-env NODE_ENV=test mocha",
+    "test:unit:debug": "cross-env NODE_ENV=test mocha --inspect --debug-brk",
+    "test:coverage": "cross-env NODE_ENV=test BABEL_ENV=coverage nyc mocha && nyc report -r lcovonly",
+    "test:coverage:html": "cross-env NODE_ENV=test BABEL_ENV=coverage nyc mocha && nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
@@ -22,36 +27,49 @@
   ],
   "author": "STORIS",
   "license": "MIT",
-	"bugs": {
-		"url": "https://github.com/STORIS/react-scrollbar-size/issues"
-	},
+  "bugs": {
+    "url": "https://github.com/STORIS/react-scrollbar-size/issues"
+  },
   "homepage": "https://github.com/STORIS/react-scrollbar-size#readme",
   "dependencies": {
     "babel-runtime": "^6.23.0",
     "lodash.isequal": "^4.5.0",
-    "react": "^15.4.2",
-    "react-event-listener": "^0.4.3"
+    "lodash.throttle": "^4.1.1",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-event-listener": "^0.4.5"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.0",
-    "babel-core": "^6.24.0",
-    "babel-eslint": "^7.2.1",
-    "babel-plugin-transform-class-properties": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.2",
+    "babel-plugin-istanbul": "^4.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.3.2",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.1",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.2.2",
-    "babel-preset-react": "^6.23.0",
-    "cross-env": "^3.2.4",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^3.5.0",
+    "cross-env": "^4.0.0",
     "dotenv": "^4.0.0",
-    "eslint": "^3.18.0",
+    "enzyme": "^2.8.2",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-mocha": "^4.9.0",
     "eslint-plugin-react": "^6.10.3",
     "fs-extra": "^2.1.2",
-    "rimraf": "^2.6.1"
+    "jsdom": "^9.12.0",
+    "mocha": "^3.2.0",
+    "nyc": "^10.2.0",
+    "react-dom": "^15.5.4",
+    "react-test-renderer": "^15.5.4",
+    "rimraf": "^2.6.1",
+    "sinon": "^2.1.0"
   },
   "browserslist": [
     "> 1%",
@@ -69,11 +87,28 @@
       "transform-runtime"
     ],
     "env": {
+      "coverage": {
+        "plugins": [
+          "istanbul"
+        ]
+      },
       "release": {
         "plugins": [
-          "babel-plugin-transform-react-remove-prop-types"
+          "transform-react-remove-prop-types"
         ]
       }
     }
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js",
+      "src/**/*.jsx"
+    ],
+    "exclude": [
+      "**/*.spec.js",
+      "**/*.spec.jsx"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }

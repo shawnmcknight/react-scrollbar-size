@@ -1,5 +1,10 @@
+.nyc_output
+.vscode
+build
 node_modules
-/build
+coverage
 .env
+.eslintcache
 debug.log
+lcov.info
 npm-debug.log

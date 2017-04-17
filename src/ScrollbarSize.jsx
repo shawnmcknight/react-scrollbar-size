@@ -1,6 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import EventListener from 'react-event-listener';
 import isEqual from 'lodash.isequal';
+import throttle from 'lodash.throttle';
 
 const styles = {
 	width: '100px',
@@ -15,13 +17,11 @@ class ScrollbarSize extends Component {
 	static propTypes = {
 		onLoad: PropTypes.func,
 		onChange: PropTypes.func,
-		resizeInterval: PropTypes.number,
 	}
 
 	static defaultProps = {
 		onLoad: null,
 		onChange: null,
-		resizeInterval: 166, // Corresponds to 10 frames at 60 Hz.
 	}
 
 	componentDidMount() {
@@ -35,10 +35,6 @@ class ScrollbarSize extends Component {
 		}
 	}
 
-	componentWillUnmount() {
-		clearTimeout(this.deferTimer);
-	}
-
 	setMeasurements = () => {
 		this.measurements = {
 			scrollbarHeight: (this.node.offsetHeight - this.node.clientHeight),
@@ -46,23 +42,17 @@ class ScrollbarSize extends Component {
 		};
 	}
 
-	handleResize = () => {
+	handleResize = throttle(() => {
 		const {
 			onChange,
 		} = this.props;
 
-		if (onChange) {
-			clearTimeout(this.deferTimer);
-			this.deferTimer = setTimeout(() => {
-				const prevMeasurements = this.measurements;
-				this.setMeasurements();
-
-				if (!isEqual(prevMeasurements, this.measurements)) {
-					onChange(this.measurements);
-				}
-			}, this.props.resizeInterval);
+		const prevMeasurements = this.measurements;
+		this.setMeasurements();
+		if (!isEqual(prevMeasurements, this.measurements)) {
+			onChange(this.measurements);
 		}
-	}
+	}, 166); // Corresponds to 10 frames at 60 Hz.
 
 	render() {
 		const {

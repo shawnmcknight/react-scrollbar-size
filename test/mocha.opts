@@ -1,0 +1,5 @@
+--require babel-register
+--require test/jsdomSetup.js
+--reporter dot
+--recursive
+src/{,**/}*.spec.{js,jsx}

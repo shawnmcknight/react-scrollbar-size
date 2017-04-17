@@ -23,7 +23,8 @@ current set of overrides:
 		"browser": true,
 		"commonjs": true,
 		"es6": true,
-		"node": true
+		"node": true,
+		"mocha": true
 	},
 	"globals": {
 	},
@@ -47,6 +48,7 @@ current set of overrides:
         "test-*.js", // repos with multiple top-level test files
         "**/*.test.js", // tests where the extension denotes that it is a test
         "**/*.spec.js", // tests where the extension denotes that it is a test
+				"**/*.spec.jsx", // tests where the extension denotes that it is a test
         "**/webpack.config.js", // webpack config
         "**/webpack.config.*.js", // webpack config
         "**/rollup.config.js", // rollup config
@@ -62,6 +64,7 @@ current set of overrides:
 	},
 	"plugins": [
 		"react",
-		"jsx-a11y"
+		"jsx-a11y",
+		"mocha"
 	]
 }
