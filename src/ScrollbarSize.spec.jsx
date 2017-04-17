@@ -1,16 +1,48 @@
 import { assert } from 'chai';
 import { mount, shallow } from 'enzyme';
+import EventListener from 'react-event-listener';
 import React from 'react';
+import { spy } from 'sinon';
 import ScrollbarSize from './';
 
 describe('<ScrollbarSize />', () => {
-	it('should render with an outer <div>', () => {
-		const wrapper = shallow(<ScrollbarSize />);
-		assert.strictEqual(wrapper.is('div'), true, 'should be a div');
+	describe('prop: onLoad', () => {
+		const onLoad = spy();
+
+		it('should not call on initial load', () => {
+			mount(<ScrollbarSize />);
+			assert.strictEqual(onLoad.callCount, 0, 'should not have been called');
+		});
+
+		it('should call on initial load', () => {
+			mount(<ScrollbarSize onLoad={onLoad} />);
+			assert.strictEqual(onLoad.callCount, 1, 'should have been called once');
+		});
 	});
 
-	it('should mount with a div', () => {
-		const wrapper = mount(<ScrollbarSize />);
-		assert.strictEqual(wrapper.childAt(0).is('div'), true, 'should be a div');
+	describe('prop: onChange', () => {
+		const onChange = spy();
+		const wrapper = shallow(<ScrollbarSize onChange={onChange} />);
+		const instance = wrapper.instance();
+		instance.node = {
+			offsetHeight: 17,
+			clientHeight: 0,
+			offsetWidth: 17,
+			clientWidth: 0,
+		};
+
+		beforeEach((done) => {
+			setTimeout(done, 200); // needed due to resize throttling
+		});
+
+		it('should call on first resize event', () => {
+			wrapper.find(EventListener).simulate('resize');
+			assert.strictEqual(onChange.callCount, 1, 'should have been called once');
+		});
+
+		it('should not call on second resize event', () => {
+			wrapper.find(EventListener).simulate('resize');
+			assert.strictEqual(onChange.callCount, 1, 'should only have been called once');
+		});
 	});
 });
