@@ -1,5 +1,10 @@
 ## HEAD
 
+## 1.0.1
+
+###### _Apr 26, 2017_
+- Cancel throttled events when unmounting component @shawnmcknight
+
 ## 1.0.0
 
 ###### _Apr 17, 2017_
