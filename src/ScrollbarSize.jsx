@@ -35,6 +35,10 @@ class ScrollbarSize extends Component {
 		}
 	}
 
+	componentWillUnmount() {
+		this.handleResize.cancel();
+	}
+
 	setMeasurements = () => {
 		this.measurements = {
 			scrollbarHeight: (this.node.offsetHeight - this.node.clientHeight),
