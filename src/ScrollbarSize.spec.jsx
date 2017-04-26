@@ -7,15 +7,19 @@ import ScrollbarSize from './';
 
 describe('<ScrollbarSize />', () => {
 	describe('prop: onLoad', () => {
+		let wrapper;
 		const onLoad = spy();
+		afterEach(() => {
+			wrapper.unmount();
+		});
 
 		it('should not call on initial load', () => {
-			mount(<ScrollbarSize />);
+			wrapper = mount(<ScrollbarSize />);
 			assert.strictEqual(onLoad.callCount, 0, 'should not have been called');
 		});
 
 		it('should call on initial load', () => {
-			mount(<ScrollbarSize onLoad={onLoad} />);
+			wrapper = mount(<ScrollbarSize onLoad={onLoad} />);
 			assert.strictEqual(onLoad.callCount, 1, 'should have been called once');
 		});
 	});
