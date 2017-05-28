@@ -17,17 +17,15 @@ class ScrollbarSize extends Component {
 	static propTypes = {
 		onLoad: PropTypes.func,
 		onChange: PropTypes.func,
-	}
+	};
 
 	static defaultProps = {
 		onLoad: null,
 		onChange: null,
-	}
+	};
 
 	componentDidMount() {
-		const {
-			onLoad,
-		} = this.props;
+		const { onLoad } = this.props;
 
 		if (onLoad) {
 			this.setMeasurements();
@@ -41,15 +39,13 @@ class ScrollbarSize extends Component {
 
 	setMeasurements = () => {
 		this.measurements = {
-			scrollbarHeight: (this.node.offsetHeight - this.node.clientHeight),
-			scrollbarWidth: (this.node.offsetWidth - this.node.clientWidth),
+			scrollbarHeight: this.node.offsetHeight - this.node.clientHeight,
+			scrollbarWidth: this.node.offsetWidth - this.node.clientWidth,
 		};
-	}
+	};
 
 	handleResize = throttle(() => {
-		const {
-			onChange,
-		} = this.props;
+		const { onChange } = this.props;
 
 		const prevMeasurements = this.measurements;
 		this.setMeasurements();
@@ -59,22 +55,16 @@ class ScrollbarSize extends Component {
 	}, 166); // Corresponds to 10 frames at 60 Hz.
 
 	render() {
-		const {
-			onChange,
-		} = this.props;
+		const { onChange } = this.props;
 
 		return (
 			<div>
-				{onChange ?
-					<EventListener
-						target="window"
-						onResize={this.handleResize}
-					/> :
-					null
-				}
+				{onChange ? <EventListener target="window" onResize={this.handleResize} /> : null}
 				<div
 					style={styles}
-					ref={(node) => { this.node = node; }}
+					ref={node => {
+						this.node = node;
+					}}
 				/>
 			</div>
 		);

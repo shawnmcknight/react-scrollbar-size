@@ -13,7 +13,4 @@ if (process.env.NODE_ENV === 'development') {
 	}
 }
 
-render(
-	app,
-	document.querySelector('#main'),
-);
+render(app, document.querySelector('#main'));

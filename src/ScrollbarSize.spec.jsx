@@ -35,7 +35,7 @@ describe('<ScrollbarSize />', () => {
 			clientWidth: 0,
 		};
 
-		beforeEach((done) => {
+		beforeEach(done => {
 			setTimeout(done, 200); // needed due to resize throttling
 		});
 

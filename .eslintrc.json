@@ -18,7 +18,10 @@ current set of overrides:
   "__CONSTANT_NAME__": false
 */
 {
-	"extends": "airbnb",
+	"extends": [
+		"airbnb",
+		"prettier"
+	],
 	"env": {
 		"browser": true,
 		"commonjs": true,
@@ -60,11 +63,23 @@ current set of overrides:
       "optionalDependencies": false
     }],
 		"react/jsx-indent": ["error",	"tab"],
-		"react/jsx-indent-props": ["error",	"tab"]
+		"react/jsx-indent-props": ["error",	"tab"],
+		"prettier/prettier": ["error", {
+			"useTabs": true,
+			"printWidth": 100,
+			"tabWidth": 2,
+			"singleQuote": true,
+			"trailingComma": "all",
+			"bracketSpacing": true,
+			"jsxBracketSameLine": false,
+			"parser": "babylon",
+			"semi": true
+		}]
 	},
 	"plugins": [
 		"react",
 		"jsx-a11y",
-		"mocha"
+		"mocha",
+		"prettier"
 	]
 }
