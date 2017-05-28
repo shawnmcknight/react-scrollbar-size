@@ -21,6 +21,11 @@ describe('<ScrollbarSize />', () => {
 		it('should call on initial load', () => {
 			wrapper = mount(<ScrollbarSize onLoad={onLoad} />);
 			assert.strictEqual(onLoad.callCount, 1, 'should have been called once');
+			assert.strictEqual(
+				onLoad.calledWith({ scrollbarHeight: 0, scrollbarWidth: 0 }),
+				true,
+				'should have been called with expected sizes',
+			);
 		});
 	});
 
@@ -42,6 +47,11 @@ describe('<ScrollbarSize />', () => {
 		it('should call on first resize event', () => {
 			wrapper.find(EventListener).simulate('resize');
 			assert.strictEqual(onChange.callCount, 1, 'should have been called once');
+			assert.strictEqual(
+				onChange.calledWith({ scrollbarHeight: 17, scrollbarWidth: 17 }),
+				true,
+				'should have been called with expected sizes',
+			);
 		});
 
 		it('should not call on second resize event', () => {
