@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import EventListener from 'react-event-listener';
-import isEqual from 'lodash.isequal';
-import throttle from 'lodash.throttle';
+import isEqual from 'lodash/isEqual';
+import throttle from 'lodash/throttle';
 
 const styles = {
 	width: '100px',
