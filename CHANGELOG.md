@@ -1,5 +1,15 @@
 ## HEAD
 
+## 1.0.2
+
+###### _May 28, 2017_
+- Remove separate lodash modules in favor of direct import of functions @shawnmcknight
+- Add support for prettier and update libraries to conform to rules @shawnmcknight
+- Update all dependencies to latest version and make updates to conform to API changes @shawnmcknight
+- Update all devDependencies to latest version and make updates to conform to API changes @shawnmcknight
+- Eliminate usage of lodash isEqual in favor of separate instance variables @shawnmcknight
+- Updated test suite to check for returned values rather than simply calling @shawnmcknight
+
 ## 1.0.1
 
 ###### _Apr 26, 2017_

@@ -10,16 +10,18 @@ const NODE_ENV = process.env.NODE_ENV;
 // import .env variables to global space
 const dotEnvVars = dotenv.config();
 const dotEnvDefines = !dotEnvVars.error ? dotEnvVars.parsed : {};
-const defines = Object.keys(dotEnvDefines).reduce((accumulator, key) => {
-	const retAccumulator = accumulator;
-	const val = JSON.stringify(dotEnvDefines[key]);
-	retAccumulator[`__${key.toUpperCase()}__`] = val;
-	return retAccumulator;
-}, {
-	'process.env': {
-		NODE_ENV: JSON.stringify(NODE_ENV),
-	},
-});
+const defines =
+	Object.keys(dotEnvDefines)
+		.reduce((accumulator, key) => {
+			const retAccumulator = accumulator;
+			const val = JSON.stringify(dotEnvDefines[key]);
+			retAccumulator[`__${key.toUpperCase()}__`] = val;
+			return retAccumulator;
+		}, {
+			'process.env': {
+				NODE_ENV: JSON.stringify(NODE_ENV),
+			},
+		});
 
 const config = {
 	entry: [
@@ -39,23 +41,28 @@ const config = {
 		port: 3000,
 	},
 	module: {
-		loaders: [{
-			test: /\.(js|jsx)?$/,
-			exclude: /node_modules/,
-			loaders: ['babel-loader'],
-		}, {
-			test: /\.css$/,
-			loader: ExtractTextPlugin.extract({
-				fallback: 'style-loader',
-				use: combineLoaders([{
-					loader: 'css-loader',
-					query: {
-						modules: true,
-						localIdentName: '[name]__[local]___[hash:base64:5]',
-					},
-				}]),
-			}),
-		}],
+		loaders: [
+			{
+				test: /\.(js|jsx)?$/,
+				exclude: /node_modules/,
+				loaders: ['babel-loader'],
+			},
+			{
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: combineLoaders([
+						{
+							loader: 'css-loader',
+							query: {
+								modules: true,
+								localIdentName: '[name]__[local]___[hash:base64:5]',
+							},
+						},
+					]),
+				}),
+			},
+		],
 	},
 	plugins: [
 		new webpack.DefinePlugin(defines),
@@ -64,8 +71,7 @@ const config = {
 			template: path.resolve(__dirname, 'src', 'www', 'index.html'),
 		}),
 		new webpack.LoaderOptionsPlugin({
-			options: {
-			},
+			options: {},
 		}),
 		new webpack.optimize.OccurrenceOrderPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
@@ -78,10 +84,7 @@ const config = {
 			path.resolve(__dirname, 'node_modules'),
 			'node_modules',
 		],
-		extensions: [
-			'.js',
-			'.jsx',
-		],
+		extensions: ['.js', '.jsx'],
 		alias: {
 			'react-scrollbar-size': path.resolve(__dirname, '../src'),
 		},

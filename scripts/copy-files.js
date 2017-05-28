@@ -2,33 +2,22 @@
 import path from 'path';
 import fse from 'fs-extra';
 
-const files = [
-	'README.md',
-	'CHANGELOG.md',
-	'LICENSE',
-];
+const files = ['README.md', 'CHANGELOG.md', 'LICENSE'];
 
-const resolveBuildPath = file => (
-	path.resolve(__dirname, '../build/', path.basename(file))
-);
+const resolveBuildPath = file => path.resolve(__dirname, '../build/', path.basename(file));
 
-const copyFile = (file) => {
+const copyFile = file => {
 	const buildPath = resolveBuildPath(file);
-	return new Promise((resolve) => {
-		fse.copy(
-			file,
-			buildPath,
-			(err) => {
-				if (err) throw err;
-				resolve();
-			},
-		);
-	})
-		.then(() => console.log(`Copied ${file} to ${buildPath}`));
+	return new Promise(resolve => {
+		fse.copy(file, buildPath, err => {
+			if (err) throw err;
+			resolve();
+		});
+	}).then(() => console.log(`Copied ${file} to ${buildPath}`));
 };
 
-const createPackageFile = () => (
-	new Promise((resolve) => {
+const createPackageFile = () =>
+	new Promise(resolve => {
 		fse.readFile(path.resolve(__dirname, '../package.json'), 'utf8', (err, data) => {
 			if (err) {
 				throw err;
@@ -38,7 +27,7 @@ const createPackageFile = () => (
 		});
 	})
 		.then(data => JSON.parse(data))
-		.then((packageData) => {
+		.then(packageData => {
 			const {
 				author,
 				version,
@@ -67,19 +56,15 @@ const createPackageFile = () => (
 				dependencies,
 			};
 
-			return new Promise((resolve) => {
+			return new Promise(resolve => {
 				const buildPath = path.resolve(__dirname, '../build/package.json');
 				const data = JSON.stringify(minimalPackage, null, 2);
-				fse.writeFile(buildPath, data, (err) => {
-					if (err) throw (err);
+				fse.writeFile(buildPath, data, err => {
+					if (err) throw err;
 					console.log(`Created package.json in ${buildPath}`);
 					resolve();
 				});
 			});
-		})
-);
+		});
 
-Promise.all(
-	files.map(file => copyFile(file)),
-)
-	.then(() => createPackageFile());
+Promise.all(files.map(file => copyFile(file))).then(() => createPackageFile());
