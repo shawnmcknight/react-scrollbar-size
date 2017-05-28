@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import EventListener from 'react-event-listener';
-import isEqual from 'lodash/isEqual';
 import throttle from 'lodash/throttle';
 
 const styles = {
@@ -29,7 +28,7 @@ class ScrollbarSize extends Component {
 
 		if (onLoad) {
 			this.setMeasurements();
-			onLoad(this.measurements);
+			onLoad({ scrollbarHeight: this.scrollbarHeight, scrollbarWidth: this.scrollbarWidth });
 		}
 	}
 
@@ -38,19 +37,18 @@ class ScrollbarSize extends Component {
 	}
 
 	setMeasurements = () => {
-		this.measurements = {
-			scrollbarHeight: this.node.offsetHeight - this.node.clientHeight,
-			scrollbarWidth: this.node.offsetWidth - this.node.clientWidth,
-		};
+		this.scrollbarHeight = this.node.offsetHeight - this.node.clientHeight;
+		this.scrollbarWidth = this.node.offsetWidth - this.node.clientWidth;
 	};
 
 	handleResize = throttle(() => {
 		const { onChange } = this.props;
 
-		const prevMeasurements = this.measurements;
+		const prevHeight = this.scrollbarHeight;
+		const prevWidth = this.scrollbarWidth;
 		this.setMeasurements();
-		if (!isEqual(prevMeasurements, this.measurements)) {
-			onChange(this.measurements);
+		if (prevHeight !== this.scrollbarHeight || prevWidth !== this.scrollbarWidth) {
+			onChange({ scrollbarHeight: this.scrollbarHeight, scrollbarWidth: this.scrollbarWidth });
 		}
 	}, 166); // Corresponds to 10 frames at 60 Hz.
 
