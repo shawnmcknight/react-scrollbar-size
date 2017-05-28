@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "normalize.css": "^6.0.0",
+    "normalize.css": "^7.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
