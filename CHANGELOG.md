@@ -1,5 +1,12 @@
 ## HEAD
 
+## 2.0.0
+
+###### _May 30, 2017_
+Major version bump to facilitate new dependency requirements:
+- Make react a peerDependency to avoid running module duplication (#3) @shawnmcknight
+- Make lodash a peerDependency due to its common use and avoid inflating build size unnecessarily @shawnmcknight
+
 ## 1.0.2
 
 ###### _May 28, 2017_
