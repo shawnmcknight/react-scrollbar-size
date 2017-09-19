@@ -1,7 +1,7 @@
 {
   "name": "react-scrollbar-size",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "React component to calculate the size of browser scrollbars",
   "main": "index.js",
   "scripts": {
