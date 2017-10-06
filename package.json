@@ -33,7 +33,7 @@
   "homepage": "https://github.com/STORIS/react-scrollbar-size#readme",
   "peerDependencies": {
     "lodash": "^4.17.0",
-    "react": "^15.5.0"
+    "react": "^15.3.0 || ^16.0.0"
   },
   "dependencies": {
     "babel-runtime": "^6.23.0",
