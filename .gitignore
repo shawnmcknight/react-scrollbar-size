@@ -8,3 +8,4 @@ coverage
 debug.log
 lcov.info
 npm-debug.log
+package-lock.json
