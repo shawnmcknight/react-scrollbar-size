@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import EventListener from 'react-event-listener';
-import throttle from 'lodash/throttle';
+import stifle from 'stifle';
 
 const styles = {
 	width: '100px',
@@ -41,7 +41,7 @@ class ScrollbarSize extends Component {
 		this.scrollbarWidth = this.node.offsetWidth - this.node.clientWidth;
 	};
 
-	handleResize = throttle(() => {
+	handleResize = stifle(() => {
 		const { onChange } = this.props;
 
 		const prevHeight = this.scrollbarHeight;
