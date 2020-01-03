@@ -1,8 +1,6 @@
-import React from 'react';
-import ScrollbarSizeDemo from './ScrollbarSizeDemo';
+import React from "react";
+import ScrollbarSizeDemo from "./ScrollbarSizeDemo";
 
-const app = (
-	<ScrollbarSizeDemo />
-);
+const app = <ScrollbarSizeDemo />;
 
 export default app;

@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
-import path from 'path';
-import fse from 'fs-extra';
+import path from "path";
+import fse from "fs-extra";
 
-const files = ['README.md', 'CHANGELOG.md', 'LICENSE'];
+const files = ["README.md", "CHANGELOG.md", "LICENSE"];
 
-const resolveBuildPath = file => path.resolve(__dirname, '../build/', path.basename(file));
+const resolveBuildPath = file =>
+	path.resolve(__dirname, "../build/", path.basename(file));
 
 const copyFile = file => {
 	const buildPath = resolveBuildPath(file);
@@ -18,13 +19,17 @@ const copyFile = file => {
 
 const createPackageFile = () =>
 	new Promise(resolve => {
-		fse.readFile(path.resolve(__dirname, '../package.json'), 'utf8', (err, data) => {
-			if (err) {
-				throw err;
-			}
+		fse.readFile(
+			path.resolve(__dirname, "../package.json"),
+			"utf8",
+			(err, data) => {
+				if (err) {
+					throw err;
+				}
 
-			resolve(data);
-		});
+				resolve(data);
+			}
+		);
 	})
 		.then(data => JSON.parse(data))
 		.then(packageData => {
@@ -38,26 +43,26 @@ const createPackageFile = () =>
 				bugs,
 				homepage,
 				peerDependencies,
-				dependencies,
+				dependencies
 			} = packageData;
 
 			const minimalPackage = {
-				name: 'react-scrollbar-size',
+				name: "react-scrollbar-size",
 				author,
 				version,
 				description,
-				main: './index.js',
+				main: "./index.js",
 				keywords,
 				repository,
 				license,
 				bugs,
 				homepage,
 				peerDependencies,
-				dependencies,
+				dependencies
 			};
 
 			return new Promise(resolve => {
-				const buildPath = path.resolve(__dirname, '../build/package.json');
+				const buildPath = path.resolve(__dirname, "../build/package.json");
 				const data = JSON.stringify(minimalPackage, null, 2);
 				fse.writeFile(buildPath, data, err => {
 					if (err) throw err;

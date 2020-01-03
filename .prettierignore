@@ -1,0 +1,5 @@
+*.lock
+.prettierignore
+LICENSE
+*.opts
+build/*
