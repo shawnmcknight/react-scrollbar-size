@@ -10,21 +10,19 @@
 	"author": "STORIS",
 	"license": "MIT",
 	"dependencies": {
-		"babel-runtime": "^6.23.0",
+		"@babel/runtime": "^7.7.7",
 		"normalize.css": "^7.0.0",
-		"react": "^15.5.4",
-		"react-dom": "^15.5.4"
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0"
 	},
 	"devDependencies": {
-		"babel-core": "^6.24.1",
-		"babel-eslint": "^7.2.3",
-		"babel-loader": "^7.0.0",
-		"babel-plugin-transform-class-properties": "^6.24.1",
-		"babel-plugin-transform-export-extensions": "^6.22.0",
-		"babel-plugin-transform-object-rest-spread": "^6.23.0",
-		"babel-plugin-transform-runtime": "^6.23.0",
-		"babel-preset-env": "^1.5.1",
-		"babel-preset-react": "^6.24.1",
+		"@babel/core": "^7.7.7",
+		"@babel/plugin-proposal-class-properties": "^7.7.4",
+		"@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+		"@babel/plugin-transform-runtime": "^7.7.6",
+		"@babel/preset-env": "^7.7.7",
+		"@babel/preset-react": "^7.7.4",
+		"babel-loader": "^8.0.6",
 		"cross-env": "^5.0.0",
 		"css-loader": "^0.28.3",
 		"dotenv": "^4.0.0",
@@ -40,17 +38,5 @@
 	"browserslist": [
 		"> 1%",
 		"last 2 versions"
-	],
-	"babel": {
-		"presets": [
-			"env",
-			"react"
-		],
-		"plugins": [
-			"transform-class-properties",
-			"transform-export-extensions",
-			"transform-object-rest-spread",
-			"transform-runtime"
-		]
-	}
+	]
 }

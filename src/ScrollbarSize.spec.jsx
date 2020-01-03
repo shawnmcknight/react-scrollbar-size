@@ -1,9 +1,13 @@
 import { assert } from "chai";
-import { mount, shallow } from "enzyme";
+import Enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import EventListener from "react-event-listener";
 import React from "react";
 import { spy } from "sinon";
 import ScrollbarSize from "./";
+
+Enzyme.configure({ adapter: new Adapter() });
+const { mount, shallow } = Enzyme;
 
 describe("<ScrollbarSize />", () => {
 	describe("prop: onLoad", () => {

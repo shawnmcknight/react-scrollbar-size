@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const fs = require("fs");
 const webpack = require("webpack");
 
 const NODE_ENV = process.env.NODE_ENV;
@@ -46,7 +47,16 @@ const config = {
 			{
 				test: /\.(js|jsx)?$/,
 				exclude: /node_modules/,
-				loaders: ["babel-loader"]
+				loaders: [
+					{
+						loader: "babel-loader",
+						options: {
+							...JSON.parse(
+								fs.readFileSync(path.resolve(__dirname, "./.babelrc"))
+							)
+						}
+					}
+				]
 			},
 			{
 				test: /\.css$/,
