@@ -3,3 +3,9 @@
 LICENSE
 *.opts
 build/*
+.editorconfig
+.eslintignore
+.gitattribute
+.gitignore
+.npmrc
+.gitattributes

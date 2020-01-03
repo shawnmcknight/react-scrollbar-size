@@ -34,24 +34,24 @@ import React, { Component } from "react";
 import ScrollbarSize from "react-scrollbar-size";
 
 class MyComponent extends Component {
-	scrollbarSizeLoad = measurements => {
-		console.log("Scrollbars loaded", measurements);
-	};
+  scrollbarSizeLoad = measurements => {
+    console.log("Scrollbars loaded", measurements);
+  };
 
-	scrollbarSizeChange = measurements => {
-		console.log("Scrollbars changed", measurements);
-	};
+  scrollbarSizeChange = measurements => {
+    console.log("Scrollbars changed", measurements);
+  };
 
-	render() {
-		return (
-			<div>
-				<ScrollbarSize
-					onLoad={this.scrollbarSizeLoad}
-					onChange={this.scrollbarSizeChange}
-				/>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <ScrollbarSize
+          onLoad={this.scrollbarSizeLoad}
+          onChange={this.scrollbarSizeChange}
+        />
+      </div>
+    );
+  }
 }
 ```
 

@@ -1,111 +1,118 @@
 {
-	"name": "react-scrollbar-size",
-	"private": true,
-	"version": "2.1.0",
-	"description": "React component to calculate the size of browser scrollbars",
-	"main": "index.js",
-	"scripts": {
-		"build": "npm run build:babel && npm run build:copy-files",
-		"build:babel": "cross-env NODE_ENV=release BABEL_ENV=release babel ./src/ --out-dir ./build/ --ignore spec.js",
-		"build:copy-files": "babel-node ./scripts/copy-files.js",
-		"clean:build": "rimraf build",
-		"lint": "prettier --check **/*.*",
-		"fmt": "prettier --write **/*.*",
-		"prebuild": "npm run clean:build",
-		"test": "npm run lint && npm run test:unit",
-		"test:unit": "cross-env NODE_ENV=test mocha",
-		"test:unit:debug": "cross-env NODE_ENV=test mocha --inspect --debug-brk",
-		"test:coverage": "cross-env NODE_ENV=test BABEL_ENV=coverage nyc mocha && nyc report -r lcovonly",
-		"test:coverage:html": "cross-env NODE_ENV=test BABEL_ENV=coverage nyc mocha && nyc report --reporter=html"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/STORIS/react-scrollbar-size.git"
-	},
-	"keywords": [
-		"react",
-		"scrollbar"
-	],
-	"author": "STORIS",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/STORIS/react-scrollbar-size/issues"
-	},
-	"homepage": "https://github.com/STORIS/react-scrollbar-size#readme",
-	"peerDependencies": {
-		"react": "^16.0.0"
-	},
-	"dependencies": {
-		"@babel/runtime": "^7.7.7",
-		"prop-types": "^15.7.2",
-		"react-event-listener": "^0.6.6",
-		"stifle": "^1.1.1"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.7.7",
-		"@babel/core": "^7.7.7",
-		"@babel/node": "^7.7.7",
-		"@babel/plugin-proposal-class-properties": "^7.7.4",
-		"@babel/plugin-proposal-object-rest-spread": "^7.7.7",
-		"@babel/plugin-transform-runtime": "^7.7.6",
-		"@babel/preset-env": "^7.7.7",
-		"@babel/preset-react": "^7.7.4",
-		"@babel/register": "^7.7.7",
-		"babel-plugin-istanbul": "^6.0.0",
-		"babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-		"chai": "^4.0.0",
-		"cross-env": "^5.0.0",
-		"dotenv": "^4.0.0",
-		"enzyme": "^3.11.0",
-		"enzyme-adapter-react-16": "^1.15.2",
-		"fs-extra": "^3.0.1",
-		"jsdom": "^11.0.0",
-		"mocha": "^3.4.2",
-		"nyc": "^10.3.2",
-		"prettier": "^1.19.1",
-		"react": "^16.12.0",
-		"react-dom": "^16.12.0",
-		"react-test-renderer": "^16.12.0",
-		"rimraf": "^2.6.1",
-		"sinon": "^2.3.2"
-	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions"
-	],
-	"babel": {
-		"presets": [
-			"@babel/preset-env",
-			"@babel/preset-react"
-		],
-		"plugins": [
-			"@babel/plugin-proposal-class-properties",
-			"@babel/plugin-proposal-object-rest-spread",
-			"@babel/plugin-transform-runtime"
-		],
-		"env": {
-			"coverage": {
-				"plugins": [
-					"istanbul"
-				]
-			},
-			"release": {
-				"plugins": [
-					"transform-react-remove-prop-types"
-				]
-			}
-		}
-	},
-	"nyc": {
-		"include": [
-			"src/**/*.js",
-			"src/**/*.jsx"
-		],
-		"exclude": [
-			"**/*.spec.js",
-			"**/*.spec.jsx"
-		],
-		"sourceMap": false,
-		"instrument": false
-	}
+  "name": "react-scrollbar-size",
+  "private": true,
+  "version": "2.1.0",
+  "description": "React component to calculate the size of browser scrollbars",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:babel && npm run build:copy-files",
+    "build:babel": "cross-env NODE_ENV=release BABEL_ENV=release babel ./src/ --out-dir ./build/ --ignore spec.js",
+    "build:copy-files": "babel-node ./scripts/copy-files.js",
+    "clean:build": "rimraf build",
+    "lint": "prettier --check '**/*.*'",
+    "fmt": "prettier --write '**/*.*'",
+    "prebuild": "npm run clean:build",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "cross-env NODE_ENV=test mocha",
+    "test:unit:debug": "cross-env NODE_ENV=test mocha --inspect --debug-brk",
+    "test:coverage": "cross-env NODE_ENV=test BABEL_ENV=coverage nyc mocha && nyc report -r lcovonly",
+    "test:coverage:html": "cross-env NODE_ENV=test BABEL_ENV=coverage nyc mocha && nyc report --reporter=html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/STORIS/react-scrollbar-size.git"
+  },
+  "keywords": [
+    "react",
+    "scrollbar"
+  ],
+  "author": "STORIS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/STORIS/react-scrollbar-size/issues"
+  },
+  "homepage": "https://github.com/STORIS/react-scrollbar-size#readme",
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.7.7",
+    "prop-types": "^15.7.2",
+    "react-event-listener": "^0.6.6",
+    "stifle": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/register": "^7.7.7",
+    "babel-plugin-istanbul": "^6.0.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "chai": "^4.0.0",
+    "cross-env": "^5.0.0",
+    "dotenv": "^4.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "fs-extra": "^3.0.1",
+    "jsdom": "^11.0.0",
+    "mocha": "^3.4.2",
+    "nyc": "^10.3.2",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "rimraf": "^2.6.1",
+    "sinon": "^2.3.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-runtime"
+    ],
+    "env": {
+      "coverage": {
+        "plugins": [
+          "istanbul"
+        ]
+      },
+      "release": {
+        "plugins": [
+          "transform-react-remove-prop-types"
+        ]
+      }
+    }
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js",
+      "src/**/*.jsx"
+    ],
+    "exclude": [
+      "**/*.spec.js",
+      "**/*.spec.jsx"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": false,
+    "useTabs": false
+  }
 }
