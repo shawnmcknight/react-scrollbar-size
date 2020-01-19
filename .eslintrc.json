@@ -1,0 +1,76 @@
+/*
+we use the airbnb guidelines as the basis for our rules (see: http://airbnb.io/javascript/)
+current set of overrides:
+- linebreak-style is no longer being disabled, set your editor to use line-feed (e.g. for VS Code, files.eol = "\n")
+- we prefer tabbed indentation since it is configurable in most editors.  the following rules allow us to use tabs for indentation:
+  - indent -> tab
+  - no-tabs -> off
+  - react/jsx-indent -> tab
+  - react/jsx-indent -> tab
+- the SwitchCase option for indent allows for indentation of cases in switchblocks
+- when using a constant value that was injected from .env, add the constant to the "globals" section in this format:
+  "__CONSTANT_NAME__": false
+*/
+{
+	"extends": ["airbnb", "prettier"],
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true,
+		"mocha": true
+	},
+	"globals": {},
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module"
+	},
+	"rules": {
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"no-tabs": "off",
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": [
+					"test/**", // tape, common npm pattern
+					"tests/**", // also common npm pattern
+					"spec/**", // mocha, rspec-like pattern
+					"**/__tests__/**", // jest pattern
+					"test.js", // repos with a single test file
+					"test-*.js", // repos with multiple top-level test files
+					"**/*.test.js", // tests where the extension denotes that it is a test
+					"**/*.spec.js", // tests where the extension denotes that it is a test
+					"**/*.spec.jsx", // tests where the extension denotes that it is a test
+					"**/webpack.config.js", // webpack config
+					"**/webpack.config.*.js", // webpack config
+					"**/rollup.config.js", // rollup config
+					"**/gulpfile.js", // gulp config
+					"**/gulpfile.*.js", // gulp config
+					"**/Gruntfile", // grunt config
+					"scripts/**" // scripts
+				],
+				"optionalDependencies": false
+			}
+		],
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"prettier/prettier": [
+			"error",
+			{
+				"useTabs": true,
+				"printWidth": 100,
+				"tabWidth": 2,
+				"singleQuote": true,
+				"trailingComma": "all",
+				"bracketSpacing": true,
+				"jsxBracketSameLine": false,
+				"parser": "babel",
+				"semi": true
+			}
+		]
+	},
+	"plugins": ["react", "jsx-a11y", "mocha", "prettier"]
+}

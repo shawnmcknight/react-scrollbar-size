@@ -1,3 +1,3 @@
-import ScrollbarSize from "./ScrollbarSize";
+import ScrollbarSize from './ScrollbarSize';
 
 export default ScrollbarSize;

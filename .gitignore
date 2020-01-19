@@ -9,4 +9,4 @@ debug.log
 lcov.info
 npm-debug.log
 package-lock.json
-.yarn-error.log
+yarn-error.log
