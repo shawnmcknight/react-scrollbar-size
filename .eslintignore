@@ -1,4 +1,14 @@
+### directories
+# installed modules
 node_modules
-/build
-/coverage
-webpack.config.js
+# build folder
+build
+# test coverage
+coverage
+
+### files
+# none at this time
+
+### file include overrides
+# root configuration files (e.g. .eslintrc.js)
+!.*.js

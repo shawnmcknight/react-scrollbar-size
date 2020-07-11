@@ -1,11 +1,13 @@
-.nyc_output
-.vscode
-build
+### directories
+# installed modules
 node_modules
+# build folder
+build
+# test coverage
 coverage
-.env
+
+### individual files
 .eslintcache
-debug.log
-lcov.info
 npm-debug.log
-package-lock.json
+
+
