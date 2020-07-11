@@ -16,5 +16,25 @@ module.exports = {
 		curly: ['error', 'all'],
 		// enforce consistent sort order
 		'sort-imports': ['error', { ignoreCase: true, ignoreDeclarationSort: true }],
+		// allow .tsx extension
+		'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }],
+		// disable import extensions for ts and js files
+		'import/extensions': [
+			'error',
+			'ignorePackages',
+			{
+				ts: 'never',
+				tsx: 'never',
+				js: 'never',
+				jsx: 'never',
+			},
+		],
+	},
+	settings: {
+		'import/resolver': {
+			node: {
+				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+			},
+		},
 	},
 };
