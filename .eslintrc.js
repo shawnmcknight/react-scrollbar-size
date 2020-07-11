@@ -37,4 +37,16 @@ module.exports = {
 			},
 		},
 	},
+	overrides: [
+		{
+			files: ['**/scripts/**', '**/__tests__/**', '**/*.test.ts'],
+			rules: {
+				// allow dev dependencies
+				'import/no-extraneous-dependencies': [
+					'error',
+					{ devDependencies: true, optionalDependencies: false, peerDependencies: false },
+				],
+			},
+		},
+	],
 };
