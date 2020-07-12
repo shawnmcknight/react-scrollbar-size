@@ -35,20 +35,24 @@ const createPackageFile = async () => {
 		dependencies,
 	} = JSON.parse(packageFile);
 
-	const minimalPackage = JSON.stringify({
-		name,
-		version,
-		description,
-		main,
-		repository,
-		keywords,
-		author,
-		license,
-		bugs,
-		homepage,
-		peerDependencies,
-		dependencies,
-	});
+	const minimalPackage = JSON.stringify(
+		{
+			name,
+			version,
+			description,
+			main,
+			repository,
+			keywords,
+			author,
+			license,
+			bugs,
+			homepage,
+			peerDependencies,
+			dependencies,
+		},
+		null,
+		'\t',
+	);
 
 	const buildPath = resolveBuildPath('package.json');
 	await fse.writeFile(buildPath, minimalPackage);
