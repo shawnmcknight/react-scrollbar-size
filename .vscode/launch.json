@@ -12,9 +12,9 @@
         "BABEL_ENV": "debug",
       },
       "program": "${workspaceFolder}/node_modules/jest/bin/jest",
-      // "runtimeArgs": [
-      //   "--nolazy"
-      // ],
+      "runtimeArgs": [
+        "--nolazy"
+      ],
       "args": [
         "${fileBasenameNoExtension}",
         "--runInBand",
