@@ -14,9 +14,9 @@ const styles: CSSProperties = {
 /** Params passed to change handler */
 export interface ScrollbarSizeChangeHandlerParams {
 	/** Current height of the scrollbar */
-	scrollbarHeight: number;
+	height: number;
 	/** Current width of the scrollbar */
-	scrollbarWidth: number;
+	width: number;
 }
 
 /** ScrollbarSize component props */
@@ -29,30 +29,31 @@ export interface ScrollbarSizeProps {
 const ScrollbarSize: FunctionComponent<ScrollbarSizeProps> = ({
 	onChange,
 }: ScrollbarSizeProps): ReactElement => {
-	const scrollbarHeight = useRef<number>(0);
-	const scrollbarWidth = useRef<number>(0);
+	const height = useRef<number>(0);
+	const width = useRef<number>(0);
 	const nodeRef = useRef<HTMLDivElement>(null);
 
 	/** Calculate and set the measurements of the scrollbar */
 	const setMeasurements = () => {
+		/* istanbul ignore next: nodeRef should be non-null */
 		const { offsetHeight = 0, clientHeight = 0, offsetWidth = 0, clientWidth = 0 } =
 			nodeRef.current ?? {};
 
-		scrollbarHeight.current = offsetHeight - clientHeight;
-		scrollbarWidth.current = offsetWidth - clientWidth;
+		height.current = offsetHeight - clientHeight;
+		width.current = offsetWidth - clientWidth;
 	};
 
 	// set up the resize handler
 	useEffect(() => {
 		const handleResize = debounce(() => {
-			const { current: prevHeight } = scrollbarHeight;
-			const { current: prevWidth } = scrollbarWidth;
+			const { current: prevHeight } = height;
+			const { current: prevWidth } = width;
 			setMeasurements();
 
-			if (prevHeight !== scrollbarHeight.current || prevWidth !== scrollbarWidth.current) {
+			if (prevHeight !== height.current || prevWidth !== width.current) {
 				onChange({
-					scrollbarHeight: scrollbarHeight.current,
-					scrollbarWidth: scrollbarWidth.current,
+					height: height.current,
+					width: width.current,
 				});
 			}
 		}, 100);
@@ -69,7 +70,7 @@ const ScrollbarSize: FunctionComponent<ScrollbarSizeProps> = ({
 	// Fire the onChange handler on first render
 	useEffect(() => {
 		setMeasurements();
-		onChange({ scrollbarHeight: scrollbarHeight.current, scrollbarWidth: scrollbarWidth.current });
+		onChange({ height: height.current, width: width.current });
 	}, [onChange]);
 
 	return <div style={styles} ref={nodeRef} />;

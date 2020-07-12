@@ -7,19 +7,16 @@ const styles: CSSProperties = {
 };
 
 const ScrollbarSizeDemo: FunctionComponent = () => {
-	const [height, setHeight] = useState(0);
-	const [width, setWidth] = useState(0);
+	const [currentHeight, setHeight] = useState(0);
+	const [currentWidth, setWidth] = useState(0);
 
-	const scrollbarSizeChange = ({
-		scrollbarHeight,
-		scrollbarWidth,
-	}: ScrollbarSizeChangeHandlerParams) => {
-		if (scrollbarHeight !== height) {
-			setHeight(scrollbarHeight);
+	const scrollbarSizeChange = ({ height, width }: ScrollbarSizeChangeHandlerParams) => {
+		if (height !== currentHeight) {
+			setHeight(height);
 		}
 
-		if (scrollbarWidth !== width) {
-			setWidth(scrollbarWidth);
+		if (width !== currentWidth) {
+			setWidth(width);
 		}
 	};
 
@@ -29,9 +26,9 @@ const ScrollbarSizeDemo: FunctionComponent = () => {
 			<h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
 			<ScrollbarSize onChange={scrollbarSizeChange} />
 			<p>
-				{`The current height of the scrollbar is ${height}px.`}
+				{`The current height of the scrollbar is ${currentHeight}px.`}
 				<br />
-				{`The current width of the scrollbar is ${width}px.`}
+				{`The current width of the scrollbar is ${currentWidth}px.`}
 			</p>
 		</div>
 	);
