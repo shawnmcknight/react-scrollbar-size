@@ -3,10 +3,10 @@ import React, { CSSProperties, FunctionComponent, ReactElement, useEffect, useRe
 
 /** Styles for the div that will be generated for measuring scrollbar size */
 const styles: CSSProperties = {
-	width: '99',
-	height: '99',
+	width: '99px',
+	height: '99px',
 	position: 'absolute',
-	top: '-9999',
+	top: '-9999px',
 	overflow: 'scroll',
 	msOverflowStyle: 'scrollbar',
 };

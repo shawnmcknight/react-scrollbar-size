@@ -39,7 +39,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ['**/scripts/**', '**/__tests__/**', '**/*.test.ts'],
+			files: ['**/scripts/**', '**/example/**', '**/__tests__/**', '**/*.test.ts'],
 			rules: {
 				// allow dev dependencies
 				'import/no-extraneous-dependencies': [

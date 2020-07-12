@@ -11,6 +11,7 @@
     "build:declaration": "tsc --declaration --emitDeclarationOnly --outDir ./build",
     "clean": "npm run clean:build",
     "clean:build": "rimraf build",
+    "example": "parcel ./example/index.html",
     "lint": "eslint . --cache && echo \"eslint: no lint errors\"",
     "lint:fix": "eslint ./src --fix",
     "prebuild": "npm run clean:build",
@@ -66,8 +67,11 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.7",
     "fs-extra": "^9.0.1",
+    "normalize.css": "^8.0.1",
+    "parcel": "^1.12.4",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
     "typescript": "^3.9.6"
   }

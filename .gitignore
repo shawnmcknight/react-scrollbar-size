@@ -1,10 +1,14 @@
 ### directories
-# installed modules
-node_modules
+# parcel cache folder
+.cache
 # build folder
 build
 # test coverage
 coverage
+# parcel dist folder
+dist
+# installed modules
+node_modules
 
 ### individual files
 .eslintcache
