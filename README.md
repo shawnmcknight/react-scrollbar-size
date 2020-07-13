@@ -24,7 +24,10 @@ The callback accepts an object which will be updated with the following properti
 | `width` | The current width of the vertical scrollbar. |
 | `height` | The current height of the horizontal scrollbar. |
 
-### Typescript Example
+## Examples
+To see a live example, follow these [instructions](https://github.com/STORIS/react-scrollbar-size/blob/master/examples/README.md).
+
+### TypeScript
 ```tsx
 import React, { CSSProperties, FunctionComponent, useState } from 'react';
 import ScrollbarSize from 'react-scrollbar-size';
@@ -63,7 +66,44 @@ const ScrollbarSizeDemo: FunctionComponent = () => {
 };
 ```
 
-To see a live example, follow these [instructions](https://github.com/STORIS/react-scrollbar-size/blob/master/examples/README.md).
+### JavaScript
+```jsx
+import React, { useState } from 'react';
+import ScrollbarSize from 'react-scrollbar-size';
+
+const styles = {
+	margin: '1rem',
+	textAlign: 'center',
+};
+
+const ScrollbarSizeDemo = () => {
+	const [currentHeight, setHeight] = useState(0);
+	const [currentWidth, setWidth] = useState(0);
+
+	const scrollbarSizeChange = ({ height, width }) => {
+		if (height !== currentHeight) {
+			setHeight(height);
+		}
+
+		if (width !== currentWidth) {
+			setWidth(width);
+		}
+	};
+
+	return (
+		<div style={styles}>
+			<h2>React Scrollbar Size Demo</h2>
+			<h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
+			<ScrollbarSize onChange={scrollbarSizeChange} />
+			<p>
+				{`The current height of the scrollbar is ${currentHeight}px.`}
+				<br />
+				{`The current width of the scrollbar is ${currentWidth}px.`}
+			</p>
+		</div>
+	);
+};
+```
 
 ## License
 This project is licensed under the terms of the
