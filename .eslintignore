@@ -1,4 +1,18 @@
+### directories
+# parcel cache folder
+.cache
+# build folder
+build
+# test coverage
+coverage
+# parcel dist folder
+dist
+# installed modules
 node_modules
-/build
-/coverage
-webpack.config.js
+
+### files
+# none at this time
+
+### file include overrides
+# root configuration files (e.g. .eslintrc.js)
+!.*.js

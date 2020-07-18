@@ -1,17 +1,17 @@
 # EditorConfig is awesome: http://EditorConfig.org
-
 # top-most EditorConfig file
 root = true
-
-[*.md]
-trim_trailing_whitespace = false
-
-[*.js]
-trim_trailing_whitespace = true
-
-# Unix-style newlines with a newline ending every file
 [*]
-indent_style = tab
+indent_style = space
+indent_size = 2
 end_of_line = lf
 charset = utf-8
+trim_trailing_whitespace = true
 insert_final_newline = true
+# file type specific overrides
+# unset will result in using the editor default
+[*.md]
+trim_trailing_whitespace = false
+[*.{js,jsx,ts,tsx,d.ts,css,html}]
+indent_style = tab
+indent_size = unset
