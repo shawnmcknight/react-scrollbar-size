@@ -1,4 +1,6 @@
 # React-Scrollbar-Size
+<div align="center">
+
 React-Scrollbar-Size is a [React](https://reactjs.org/) component designed to calculate the size of the user agent's horizontal and vertical scrollbars.
 It will also detect when the size of the scrollbars change, such as when the user agent's zoom factor changes.
 
@@ -15,6 +17,8 @@ It will also detect when the size of the scrollbars change, such as when the use
 ![License](https://img.shields.io/npm/l/react-scrollbar-size)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 [![Star on Github](https://img.shields.io/github/stars/storis/react-scrollbar-size?style=social)](https://github.com/STORIS/react-scrollbar-size)
+
+</div>
 
 ## Installation
 React-Scrollbar-Size is available as an [npm package](https://www.npmjs.com/package/react-scrollbar-size):
