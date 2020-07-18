@@ -1,6 +1,6 @@
 ## HEAD
 
-## 3.0.0-rc
+## 3.0.0-rc.0
 ###### _2020-07-18_
 **BREAKING CHANGE**
 - Library has been completely rewritten in TypeScript, complies with React >=16.8, and all tooling has been updated (#11) @shawnmcknight
