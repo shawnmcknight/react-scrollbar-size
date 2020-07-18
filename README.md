@@ -1,5 +1,5 @@
 # React-Scrollbar-Size
-[![STORIS](https://circleci.com/gh/STORIS/react-scrollbar-size.svg?style=svg)](https://app.circleci.com/pipelines/github/STORIS/react-scrollbar-size?branch=master)
+[![STORIS](https://circleci.com/gh/STORIS/react-scrollbar-size.svg?style=shield)](https://circleci.com/gh/STORIS/react-scrollbar-size/tree/master)
 [![Downloads](https://img.shields.io/npm/dm/react-scrollbar-size)](https://www.npmjs.com/package/react-scrollbar-size)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
