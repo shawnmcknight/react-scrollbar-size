@@ -12,9 +12,21 @@ jobs:
       - node/install:
           node-version: << parameters.node-version >>
       - node/install-packages
-      - run: npm run typecheck
-      - run: npm run lint
-      - run: npm run test:coverage:summary
+      - run:
+          name: Node version
+          command: node -v
+      - run:
+          name: Npm version
+          command: npm -v
+      - run:
+          name: Validate TS types
+          command: npm run typecheck
+      - run:
+          name: Run eslint
+          command: npm run lint
+      - run:
+          name: Unit tests and coverage
+          command: npm run test:coverage:summary
 workflows:
   all-tests:
     jobs:
