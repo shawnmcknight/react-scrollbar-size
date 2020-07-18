@@ -1,4 +1,6 @@
 # React-Scrollbar-Size
+[![STORIS](https://circleci.com/gh/STORIS/react-scrollbar-size.svg?style=svg)](https://app.circleci.com/pipelines/github/STORIS/react-scrollbar-size?branch=master)
+[![Downloads](https://img.shields.io/npm/dm/react-scrollbar-size)](https://www.npmjs.com/package/react-scrollbar-size)
 
 React-Scrollbar-Size is a React component designed to calculate the size of the user agent's horizontal and vertical scrollbars.
 It will also detect when the size of the scrollbars changes, such as when the user agent's zoom factor changes.
@@ -25,7 +27,7 @@ The callback accepts an object which will be updated with the following properti
 | `height` | The current height of the horizontal scrollbar. |
 
 ## Examples
-To see a live example, follow these [instructions](https://github.com/STORIS/react-scrollbar-size/blob/master/examples/README.md).
+To see a live example, follow these [instructions](https://github.com/STORIS/react-scrollbar-size/blob/master/example/README.md).
 
 ### TypeScript
 ```tsx
@@ -33,36 +35,36 @@ import React, { CSSProperties, FunctionComponent, useState } from 'react';
 import ScrollbarSize from 'react-scrollbar-size';
 
 const styles: CSSProperties = {
-	margin: '1rem',
-	textAlign: 'center',
+  margin: '1rem',
+  textAlign: 'center',
 };
 
 const ScrollbarSizeDemo: FunctionComponent = () => {
-	const [currentHeight, setHeight] = useState(0);
-	const [currentWidth, setWidth] = useState(0);
+  const [currentHeight, setHeight] = useState(0);
+  const [currentWidth, setWidth] = useState(0);
 
-	const scrollbarSizeChange = ({ height, width }: ScrollbarSizeChangeHandlerParams) => {
-		if (height !== currentHeight) {
-			setHeight(height);
-		}
+  const scrollbarSizeChange = ({ height, width }: ScrollbarSizeChangeHandlerParams) => {
+    if (height !== currentHeight) {
+      setHeight(height);
+    }
 
-		if (width !== currentWidth) {
-			setWidth(width);
-		}
-	};
+    if (width !== currentWidth) {
+      setWidth(width);
+    }
+  };
 
-	return (
-		<div style={styles}>
-			<h2>React Scrollbar Size Demo</h2>
-			<h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
-			<ScrollbarSize onChange={scrollbarSizeChange} />
-			<p>
-				{`The current height of the scrollbar is ${currentHeight}px.`}
-				<br />
-				{`The current width of the scrollbar is ${currentWidth}px.`}
-			</p>
-		</div>
-	);
+  return (
+    <div style={styles}>
+      <h2>React Scrollbar Size Demo</h2>
+      <h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
+      <ScrollbarSize onChange={scrollbarSizeChange} />
+      <p>
+        {`The current height of the scrollbar is ${currentHeight}px.`}
+        <br />
+        {`The current width of the scrollbar is ${currentWidth}px.`}
+      </p>
+    </div>
+  );
 };
 ```
 
@@ -72,36 +74,36 @@ import React, { useState } from 'react';
 import ScrollbarSize from 'react-scrollbar-size';
 
 const styles = {
-	margin: '1rem',
-	textAlign: 'center',
+  margin: '1rem',
+  textAlign: 'center',
 };
 
 const ScrollbarSizeDemo = () => {
-	const [currentHeight, setHeight] = useState(0);
-	const [currentWidth, setWidth] = useState(0);
+  const [currentHeight, setHeight] = useState(0);
+  const [currentWidth, setWidth] = useState(0);
 
-	const scrollbarSizeChange = ({ height, width }) => {
-		if (height !== currentHeight) {
-			setHeight(height);
-		}
+  const scrollbarSizeChange = ({ height, width }) => {
+    if (height !== currentHeight) {
+      setHeight(height);
+    }
 
-		if (width !== currentWidth) {
-			setWidth(width);
-		}
-	};
+    if (width !== currentWidth) {
+      setWidth(width);
+    }
+  };
 
-	return (
-		<div style={styles}>
-			<h2>React Scrollbar Size Demo</h2>
-			<h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
-			<ScrollbarSize onChange={scrollbarSizeChange} />
-			<p>
-				{`The current height of the scrollbar is ${currentHeight}px.`}
-				<br />
-				{`The current width of the scrollbar is ${currentWidth}px.`}
-			</p>
-		</div>
-	);
+  return (
+    <div style={styles}>
+      <h2>React Scrollbar Size Demo</h2>
+      <h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
+      <ScrollbarSize onChange={scrollbarSizeChange} />
+      <p>
+        {`The current height of the scrollbar is ${currentHeight}px.`}
+        <br />
+        {`The current width of the scrollbar is ${currentWidth}px.`}
+      </p>
+    </div>
+  );
 };
 ```
 
