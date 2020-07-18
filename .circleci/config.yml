@@ -5,7 +5,7 @@ jobs:
   test:
     executor: node/default
     parameters:
-      version:
+      node-version:
         type: string
     steps:
       - checkout
