@@ -1,6 +1,7 @@
 # React-Scrollbar-Size
 [![STORIS](https://circleci.com/gh/STORIS/react-scrollbar-size.svg?style=svg)](https://app.circleci.com/pipelines/github/STORIS/react-scrollbar-size?branch=master)
 [![Downloads](https://img.shields.io/npm/dm/react-scrollbar-size)](https://www.npmjs.com/package/react-scrollbar-size)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 React-Scrollbar-Size is a React component designed to calculate the size of the user agent's horizontal and vertical scrollbars.
 It will also detect when the size of the scrollbars changes, such as when the user agent's zoom factor changes.
@@ -9,7 +10,7 @@ It will also detect when the size of the scrollbars changes, such as when the us
 React-Scrollbar-Size is available as an [npm package](https://www.npmjs.com/package/react-scrollbar-size):
 
 ```sh
-$ npm install --save react-scrollbar-size
+$ npm install react-scrollbar-size
 ```
 
 ## Usage
@@ -27,7 +28,7 @@ The callback accepts an object which will be updated with the following properti
 | `height` | The current height of the horizontal scrollbar. |
 
 ## Examples
-To see a live example, follow these [instructions](https://github.com/STORIS/react-scrollbar-size/blob/master/example/README.md).
+To see a live example, follow these [instructions](/example/README.md).
 
 ### TypeScript
 ```tsx
@@ -109,4 +110,4 @@ const ScrollbarSizeDemo = () => {
 
 ## License
 This project is licensed under the terms of the
-[MIT license](https://github.com/STORIS/react-scrollbar-size/blob/master/LICENSE).
+[MIT license](/LICENSE).
