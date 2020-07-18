@@ -1,17 +1,27 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
+  node: circleci/node@3.0.1
 jobs:
-  build-and-test:
-    executor:
-      name: node/default
+  test:
+    executor: node/default
+    parameters:
+      version:
+        type: string
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - node/install:
+          node-version: << parameters.node-version >>
+      - node/install-packages
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run test:coverage:summary
 workflows:
-  build-and-test:
+  all-tests:
     jobs:
-      - build-and-test
+      - test:
+          matrix:
+            parameters:
+              node-version:
+                - 12.18.0
+                - 13.14.0
+                - 14.5.0
