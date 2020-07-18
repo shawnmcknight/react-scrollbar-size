@@ -1,5 +1,11 @@
 ## HEAD
 
+## 3.0.0
+###### _2020-07-18_
+**BREAKING CHANGE**
+- Library has been completely rewritten in TypeScript, complies with React >=16.8, and all tooling has been updated (#11) @shawnmcknight
+  - The API has been changed significantly; there are no longer separate `onLoad` and `onChange` props in favor of a single `onChange` prop.  The callback for `onChange` returns `height` and `width` instead of `scrollbarHeight` and `scrollbarWidth`.
+
 ## 3.0.0-rc.0
 ###### _2020-07-18_
 **BREAKING CHANGE**
