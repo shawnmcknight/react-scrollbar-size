@@ -26,7 +26,7 @@ The callback accepts an object which will be updated with the following properti
 | `width` | The current width of the vertical scrollbar. |
 | `height` | The current height of the horizontal scrollbar. |
 
-### Example
+## Examples
 To see a live example, follow these [instructions](https://github.com/STORIS/react-scrollbar-size/blob/master/example/README.md).
 
 ### TypeScript
