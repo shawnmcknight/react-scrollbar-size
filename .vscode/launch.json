@@ -27,5 +27,16 @@
         "<node_internals>/**/*.js"
       ],
     },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Debug Parcel via Chrome",
+      "url": "http://localhost:1234",
+      "webRoot": "${workspaceFolder}",
+      "breakOnLoad": true,
+      "sourceMapPathOverrides": {
+        "../*": "${webRoot}/*"
+      },
+    },
   ],
 }

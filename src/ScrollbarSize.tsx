@@ -1,5 +1,5 @@
-import debounce from 'lodash.debounce';
 import React, { CSSProperties, FunctionComponent, ReactElement, useEffect, useRef } from 'react';
+import { debounce } from './utils';
 
 /** Styles for the div that will be generated for measuring scrollbar size */
 const styles: CSSProperties = {

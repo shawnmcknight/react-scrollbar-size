@@ -39,6 +39,13 @@ module.exports = {
 	},
 	overrides: [
 		{
+			files: ['**/index.*'],
+			rules: {
+				// allow named export
+				'import/prefer-default-export': 'off',
+			},
+		},
+		{
 			files: ['**/scripts/**', '**/example/**', '**/__tests__/**', '**/*.test.ts', '**/*.test.tsx'],
 			rules: {
 				// allow dev dependencies
