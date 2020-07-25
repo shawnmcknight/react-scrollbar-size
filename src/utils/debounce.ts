@@ -5,7 +5,7 @@ interface DebouncedFn<F extends (...args: any[]) => void> {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const debounce = <F extends (...args: any[]) => void>(func: F, waitFor: number): DebouncedFn<F> => {
+const debounce = <F extends (...args: any[]) => void>(fn: F, waitFor: number): DebouncedFn<F> => {
 	let timeout: NodeJS.Timeout | null;
 
 	const clear = () => {
@@ -19,7 +19,7 @@ const debounce = <F extends (...args: any[]) => void>(func: F, waitFor: number):
 		clear();
 
 		timeout = setTimeout(() => {
-			func(...args);
+			fn(...args);
 		}, waitFor);
 	};
 
