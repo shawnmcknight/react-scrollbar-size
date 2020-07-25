@@ -3,9 +3,9 @@ module.exports = {
 	restoreMocks: true, // restore initial behavior of mocked functions
 	moduleFileExtensions: ['js', 'ts', 'tsx'],
 	collectCoverageFrom: [
-		'**/src/*.ts', // test typescript files
-		'**/src/*.tsx', // test typescript files that render JSX
-		'!**/src/**/index.ts', // do not test index export files
+		'**/src/**/*.ts', // typescript files
+		'**/src/**/*.tsx', // typescript files that render JSX
+		'!**/src/**/index.ts', // do not cover index export files
 	],
 	coverageThreshold: {
 		global: {
