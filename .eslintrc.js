@@ -29,6 +29,9 @@ module.exports = {
 				jsx: 'never',
 			},
 		],
+		// no-use-before-define does not work with eslint plugin; enable the plugin's rule
+		'no-use-before-define': 'off',
+		'@typescript-eslint/no-use-before-define': 'error',
 	},
 	settings: {
 		'import/resolver': {
