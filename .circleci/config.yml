@@ -3,7 +3,8 @@ orbs:
   node: circleci/node@4.1.0
 jobs:
   test:
-    executor: node/default
+    docker:
+      - image: cimg/base:stable
     parameters:
       node-version:
         type: string
@@ -31,8 +32,6 @@ workflows:
   all-tests:
     jobs:
       - test:
-          docker:
-            - image: cimg/base:stable
           matrix:
             parameters:
               node-version:
