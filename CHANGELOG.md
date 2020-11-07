@@ -1,5 +1,9 @@
 ## HEAD
 
+## 3.1.0
+###### _2020_11_07_
+- Update dependency ranges to support react `^17.0.1` ([#140](https://github.com/STORIS/react-scrollbar-size/pull/140) by [@shawnmcknight](https://github.com/shawnmcknight))
+
 ## 3.0.1
 ###### _2020-07-25_
 - Internalized `debounce` function ([#30](https://github.com/STORIS/react-scrollbar-size/pull/30) by [@shawnmcknight](https://github.com/shawnmcknight))
