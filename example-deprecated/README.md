@@ -2,8 +2,10 @@
 
 This is an example package for React-Scrollbar-Size.
 
+:warning: This example is using the deprecated component syntax.  The hook syntax should be used instead.
+
 ## Requirements
-- [Node](https://nodejs.org) 12.0 or newer
+- [Node](https://nodejs.org) 14.0 or newer
 
 ## Installation
 After cloning the repository, install dependencies:
@@ -16,7 +18,7 @@ npm install
 
 Once dependencies are installed, start the application with:
 ```sh
-npm run example
+npm run example:deprecated
 ```
 
 Open `http://localhost:1234` to view the example site.

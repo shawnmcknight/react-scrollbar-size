@@ -13,6 +13,8 @@
     "clean:build": "rimraf build",
     "example": "parcel ./example/index.html",
     "example:debug": "cross-env BABEL_ENV=debug && parcel ./example/index.html",
+    "example:deprecated": "parcel ./example-deprecated/index.html",
+    "example:deprecated:debug": "cross-env BABEL_ENV=debug && parcel ./example-deprecated/index.html",
     "lint": "eslint . --ext js,ts,tsx --cache && echo \"eslint: no lint errors\"",
     "lint:fix": "eslint . --ext js,ts,tsx --fix",
     "prebuild": "npm run clean:build",

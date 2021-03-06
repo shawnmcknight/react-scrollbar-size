@@ -49,7 +49,14 @@ module.exports = {
 			},
 		},
 		{
-			files: ['**/scripts/**', '**/example/**', '**/__tests__/**', '**/*.test.ts', '**/*.test.tsx'],
+			files: [
+				'**/scripts/**',
+				'**/example/**',
+				'**/example-deprecated/**',
+				'**/__tests__/**',
+				'**/*.test.ts',
+				'**/*.test.tsx',
+			],
 			rules: {
 				// allow dev dependencies
 				'import/no-extraneous-dependencies': [
