@@ -16,7 +16,7 @@ npm install
 
 Once dependencies are installed, start the application with:
 ```sh
-npm run example:deprecated
+npm run example
 ```
 
 Open `http://localhost:1234` to view the example site.

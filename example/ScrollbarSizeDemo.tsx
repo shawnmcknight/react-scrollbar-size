@@ -11,7 +11,7 @@ const ScrollbarSizeDemo: FunctionComponent = () => {
 
 	return (
 		<div style={styles}>
-			<h2>React-Scrollbar-Size Component Example</h2>
+			<h2>React Scrollbar Size Demo</h2>
 			<h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
 			<p>
 				{`The current height of the scrollbar is ${height}px.`}
