@@ -25,18 +25,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/STORIS/react-scrollbar-size.git"
+    "url": "git+https://github.com/shawnmcknight/react-scrollbar-size.git"
   },
   "keywords": [
     "react",
     "scrollbar"
   ],
-  "author": "STORIS",
+  "author": "Shawn McKnight",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/STORIS/react-scrollbar-size/issues"
+    "url": "https://github.com/shawnmcknight/react-scrollbar-size/issues"
   },
-  "homepage": "https://github.com/STORIS/react-scrollbar-size#readme",
+  "homepage": "https://github.com/shawnmcknight/react-scrollbar-size#readme",
   "engines": {
     "node": ">=14.0.0"
   },
