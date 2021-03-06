@@ -52,7 +52,7 @@ module.exports = {
 			files: [
 				'**/scripts/**',
 				'**/example/**',
-				'**/example-deprecated/**',
+				'**/example-component/**',
 				'**/__tests__/**',
 				'**/*.test.ts',
 				'**/*.test.tsx',

@@ -36,7 +36,7 @@ The `useScrollbarSize` custom hook returns an object with two properties:
 | `width`  | The current width of the vertical scrollbar    |
 | `height` | The current height of the horizontal scrollbar |
 
-:information_source: The component syntax will be deprecated in version 4.0. It is still being provided for backwards compatibility.
+:information_source: The component syntax will be deprecated in version 4. It is currently being provided for backwards compatibility.
 
 ## Examples
 To see a live example, follow these [instructions](/example/README.md).
