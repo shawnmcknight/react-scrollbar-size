@@ -1,5 +1,10 @@
 ## HEAD
 
+## 3.1.1
+###### _2021_03_06_
+- Update links to reference new repository location and main branch ([#260](https://github.com/shawnmcknight/react-scrollbar-size/pull/260) by [@shawnmcknight](https://github.com/shawnmcknight))
+- Change from `master` branch to `main` branch (by [@shawnmcknight](https://github.com/shawnmcknight))
+
 ## 3.1.0
 ###### _2020_11_07_
 - Update dependency ranges to support react `^17.0.1` ([#140](https://github.com/shawnmcknight/react-scrollbar-size/pull/140) by [@shawnmcknight](https://github.com/shawnmcknight))
