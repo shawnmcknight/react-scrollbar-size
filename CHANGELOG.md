@@ -2,23 +2,23 @@
 
 ## 3.1.0
 ###### _2020_11_07_
-- Update dependency ranges to support react `^17.0.1` ([#140](https://github.com/STORIS/react-scrollbar-size/pull/140) by [@shawnmcknight](https://github.com/shawnmcknight))
+- Update dependency ranges to support react `^17.0.1` ([#140](https://github.com/shawnmcknight/react-scrollbar-size/pull/140) by [@shawnmcknight](https://github.com/shawnmcknight))
 
 ## 3.0.1
 ###### _2020-07-25_
-- Internalized `debounce` function ([#30](https://github.com/STORIS/react-scrollbar-size/pull/30) by [@shawnmcknight](https://github.com/shawnmcknight))
+- Internalized `debounce` function ([#30](https://github.com/shawnmcknight/react-scrollbar-size/pull/30) by [@shawnmcknight](https://github.com/shawnmcknight))
   - Repo now has zero production dependencies!
 
 ## 3.0.0
 ###### _2020-07-18_
 **BREAKING CHANGE**
-- Library has been completely rewritten in TypeScript, complies with React >=16.8, and all tooling has been updated ([#11](https://github.com/STORIS/react-scrollbar-size/pull/11) by [@shawnmcknight](https://github.com/shawnmcknight))
+- Library has been completely rewritten in TypeScript, complies with React >=16.8, and all tooling has been updated ([#11](https://github.com/shawnmcknight/react-scrollbar-size/pull/11) by [@shawnmcknight](https://github.com/shawnmcknight))
   - The API has been changed significantly; there are no longer separate `onLoad` and `onChange` props in favor of a single `onChange` prop.  The callback for `onChange` returns `height` and `width` instead of `scrollbarHeight` and `scrollbarWidth`.
 
 ## 3.0.0-rc.0
 ###### _2020-07-18_
 **BREAKING CHANGE**
-- Library has been completely rewritten in TypeScript, complies with React >=16.8, and all tooling has been updated ([#11](https://github.com/STORIS/react-scrollbar-size/pull/11) by [@shawnmcknight](https://github.com/shawnmcknight))
+- Library has been completely rewritten in TypeScript, complies with React >=16.8, and all tooling has been updated ([#11](https://github.com/shawnmcknight/react-scrollbar-size/pull/11) by [@shawnmcknight](https://github.com/shawnmcknight))
   - The API has been changed significantly; there are no longer separate `onLoad` and `onChange` props in favor of a single `onChange` prop.  The callback for `onChange` returns `height` and `width` instead of `scrollbarHeight` and `scrollbarWidth`.
 
 ## 2.1.0

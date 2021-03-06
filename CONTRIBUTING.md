@@ -13,7 +13,7 @@ Working on your first Pull Request? You can learn how from this free video serie
 
 [How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
-To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/STORIS/react-scrollbar-size/issues?q=is:open+is:issue+label:"good+first+issue") that contain changes that have a relatively limited scope. This label means that there is already a working solution to the issue in the discussion section. Therefore, it is a great place to get started.
+To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/shawnmcknight/react-scrollbar-size/issues?q=is:open+is:issue+label:"good+first+issue") that contain changes that have a relatively limited scope. This label means that there is already a working solution to the issue in the discussion section. Therefore, it is a great place to get started.
 
 If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you have started to work on it so other people don’t accidentally duplicate your effort.
 
@@ -33,7 +33,7 @@ When in doubt, keep your Pull Requests small. To give a Pull Request the best ch
 ```sh
 git clone https://github.com/<your username>/react-scrollbar-size.git
 cd react-scrollbar-size
-git remote add upstream https://github.com/STORIS/react-scrollbar-size.git
+git remote add upstream https://github.com/shawnmcknight/react-scrollbar-size.git
 ```
 
 3. Install the dependencies:
@@ -54,7 +54,7 @@ git checkout -b my-topic-branch
 git push -u origin HEAD
 ```
 
-6. Go to [the repository](https://github.com/STORIS/react-scrollbar-size) and make a Pull Request.
+6. Go to [the repository](https://github.com/shawnmcknight/react-scrollbar-size) and make a Pull Request.
 
 The maintainers are monitoring for Pull Requests. We will review your Pull Request and either merge it, request changes to it, or close it with an explanation.
 
@@ -90,4 +90,4 @@ Finally, when you submit a Pull Request, they are run again by our continuous in
 
 ## License
 
-By contributing your code to the STORIS/react-scrollbar-size GitHub repository, you agree to license your contribution under the MIT license.
+By contributing your code to the shawnmcknight/react-scrollbar-size GitHub repository, you agree to license your contribution under the MIT license.
