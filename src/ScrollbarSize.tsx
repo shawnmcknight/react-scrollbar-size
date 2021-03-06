@@ -1,23 +1,9 @@
-import React, { CSSProperties, FunctionComponent, ReactElement, useEffect, useRef } from 'react';
-import { debounce } from './utils';
-
-/** Styles for the div that will be generated for measuring scrollbar size */
-const styles: CSSProperties = {
-	width: '99px',
-	height: '99px',
-	position: 'absolute',
-	top: '-9999px',
-	overflow: 'scroll',
-	msOverflowStyle: 'scrollbar',
-};
+import { FunctionComponent, useEffect } from 'react';
+import type { ScrollbarMeasurements } from './useScrollbarSize';
+import useScrollbarSize from './useScrollbarSize';
 
 /** Params passed to change handler */
-export interface ScrollbarSizeChangeHandlerParams {
-	/** Current height of the scrollbar */
-	height: number;
-	/** Current width of the scrollbar */
-	width: number;
-}
+export type ScrollbarSizeChangeHandlerParams = ScrollbarMeasurements;
 
 /** ScrollbarSize component props */
 export interface ScrollbarSizeProps {
@@ -28,52 +14,14 @@ export interface ScrollbarSizeProps {
 /** React component to fire an event when the size of the scrollbar changes */
 const ScrollbarSize: FunctionComponent<ScrollbarSizeProps> = ({
 	onChange,
-}: ScrollbarSizeProps): ReactElement => {
-	const height = useRef<number>(0);
-	const width = useRef<number>(0);
-	const nodeRef = useRef<HTMLDivElement>(null);
+}: ScrollbarSizeProps): null => {
+	const { height, width } = useScrollbarSize();
 
-	/** Calculate and set the measurements of the scrollbar */
-	const setMeasurements = () => {
-		/* istanbul ignore next: nodeRef should be non-null */
-		const { offsetHeight = 0, clientHeight = 0, offsetWidth = 0, clientWidth = 0 } =
-			nodeRef.current ?? {};
-
-		height.current = offsetHeight - clientHeight;
-		width.current = offsetWidth - clientWidth;
-	};
-
-	// set up the resize handler
 	useEffect(() => {
-		const handleResize = debounce(() => {
-			const { current: prevHeight } = height;
-			const { current: prevWidth } = width;
-			setMeasurements();
+		onChange({ height, width });
+	}, [height, width, onChange]);
 
-			if (prevHeight !== height.current || prevWidth !== width.current) {
-				onChange({
-					height: height.current,
-					width: width.current,
-				});
-			}
-		}, 100);
-
-		window.addEventListener('resize', handleResize);
-
-		// cleanup
-		return () => {
-			handleResize.cancel();
-			window.removeEventListener('resize', handleResize);
-		};
-	}, [onChange]);
-
-	// Fire the onChange handler on first render
-	useEffect(() => {
-		setMeasurements();
-		onChange({ height: height.current, width: width.current });
-	}, [onChange]);
-
-	return <div style={styles} ref={nodeRef} />;
+	return null;
 };
 
 export default ScrollbarSize;
