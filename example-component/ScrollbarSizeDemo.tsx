@@ -26,9 +26,9 @@ const ScrollbarSizeDemo: FunctionComponent = () => {
 			<h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
 			<ScrollbarSize onChange={scrollbarSizeChange} />
 			<p>
-				{`The current height of the scrollbar is ${currentHeight}px.`}
+				The current height of the scrollbar is {currentHeight}px.
 				<br />
-				{`The current width of the scrollbar is ${currentWidth}px.`}
+				The current width of the scrollbar is {currentWidth}px.
 			</p>
 		</div>
 	);
