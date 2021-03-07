@@ -1,4 +1,5 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { render } from '@testing-library/react';
 import ScrollbarSize, { ScrollbarSizeChangeHandlerParams } from '../ScrollbarSize';
 
@@ -36,121 +37,171 @@ afterAll(() => {
 });
 
 test('should call onChange on initial render', () => {
-	render(<ScrollbarSize onChange={onChange} />);
+	act(() => {
+		render(<ScrollbarSize onChange={onChange} />);
+	});
 
-	expect(onChange).toHaveBeenCalledTimes(1);
+	expect(onChange).toHaveBeenCalledTimes(2);
 	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(1, {
+		height: 0,
+		width: 0,
+	});
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
 		height: 50,
 		width: 50,
 	});
 });
 
 test('should call onChange on first resize event', () => {
-	render(<ScrollbarSize onChange={onChange} />);
+	act(() => {
+		render(<ScrollbarSize onChange={onChange} />);
+	});
 
 	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
 	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
-	window.dispatchEvent(new window.Event('resize'));
-	jest.advanceTimersByTime(100);
+	act(() => {
+		window.dispatchEvent(new window.Event('resize'));
+		jest.advanceTimersByTime(100);
+	});
 
-	expect(onChange).toHaveBeenCalledTimes(2);
+	expect(onChange).toHaveBeenCalledTimes(3);
 	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(1, {
+		height: 0,
+		width: 0,
+	});
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
 		height: 50,
 		width: 50,
 	});
-	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(3, {
 		height: 17,
 		width: 27,
 	});
 });
 
 test('should not call onChange when scrollbar size is unchanged', () => {
-	render(<ScrollbarSize onChange={onChange} />);
+	act(() => {
+		render(<ScrollbarSize onChange={onChange} />);
+	});
 
 	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
 	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
-	window.dispatchEvent(new window.Event('resize'));
-	jest.advanceTimersByTime(100);
+	act(() => {
+		window.dispatchEvent(new window.Event('resize'));
+		jest.advanceTimersByTime(100);
+	});
 
 	// resize again
-	window.dispatchEvent(new window.Event('resize'));
-	jest.advanceTimersByTime(100);
+	act(() => {
+		window.dispatchEvent(new window.Event('resize'));
+		jest.advanceTimersByTime(100);
+	});
 
-	expect(onChange).toHaveBeenCalledTimes(2);
+	expect(onChange).toHaveBeenCalledTimes(3);
 	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(1, {
+		height: 0,
+		width: 0,
+	});
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
 		height: 50,
 		width: 50,
 	});
-	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(3, {
 		height: 17,
 		width: 27,
 	});
 });
 
 test('should call onChange each time scrollbar height changes', () => {
-	render(<ScrollbarSize onChange={onChange} />);
+	act(() => {
+		render(<ScrollbarSize onChange={onChange} />);
+	});
 
 	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
 	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
-	window.dispatchEvent(new window.Event('resize'));
-	jest.advanceTimersByTime(100);
+	act(() => {
+		window.dispatchEvent(new window.Event('resize'));
+		jest.advanceTimersByTime(100);
+	});
 
 	// resize again
 	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 37 });
-	window.dispatchEvent(new window.Event('resize'));
-	jest.advanceTimersByTime(100);
+	act(() => {
+		window.dispatchEvent(new window.Event('resize'));
+		jest.advanceTimersByTime(100);
+	});
 
-	expect(onChange).toHaveBeenCalledTimes(3);
+	expect(onChange).toHaveBeenCalledTimes(4);
 	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(1, {
+		height: 0,
+		width: 0,
+	});
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
 		height: 50,
 		width: 50,
 	});
-	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(3, {
 		height: 17,
 		width: 27,
 	});
-	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(3, {
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(4, {
 		height: 37,
 		width: 27,
 	});
 });
 
 test('should call onChange each time scrollbar width changes', () => {
-	render(<ScrollbarSize onChange={onChange} />);
+	act(() => {
+		render(<ScrollbarSize onChange={onChange} />);
+	});
 
 	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
 	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
-	window.dispatchEvent(new window.Event('resize'));
-	jest.advanceTimersByTime(100);
+	act(() => {
+		window.dispatchEvent(new window.Event('resize'));
+		jest.advanceTimersByTime(100);
+	});
 
 	// resize again
 	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 37 });
-	window.dispatchEvent(new window.Event('resize'));
-	jest.advanceTimersByTime(100);
+	act(() => {
+		window.dispatchEvent(new window.Event('resize'));
+		jest.advanceTimersByTime(100);
+	});
 
-	expect(onChange).toHaveBeenCalledTimes(3);
+	expect(onChange).toHaveBeenCalledTimes(4);
 	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(1, {
+		height: 0,
+		width: 0,
+	});
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
 		height: 50,
 		width: 50,
 	});
-	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(3, {
 		height: 17,
 		width: 27,
 	});
-	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(3, {
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(4, {
 		height: 17,
 		width: 37,
 	});
 });
 
 test('should not call onChange additional times if the resize event is not fired', () => {
-	render(<ScrollbarSize onChange={onChange} />);
+	act(() => {
+		render(<ScrollbarSize onChange={onChange} />);
+	});
 
 	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
 	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
 
-	expect(onChange).toHaveBeenCalledTimes(1);
+	expect(onChange).toHaveBeenCalledTimes(2);
 	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(1, {
+		height: 0,
+		width: 0,
+	});
+	expect(onChange).toHaveBeenNthCalledWith<[ScrollbarSizeChangeHandlerParams]>(2, {
 		height: 50,
 		width: 50,
 	});
