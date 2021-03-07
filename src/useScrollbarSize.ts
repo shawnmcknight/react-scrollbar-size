@@ -31,7 +31,7 @@ const useScrollbarSize = (): ScrollbarMeasurements => {
 		};
 
 		const updateState = () => {
-			const { offsetHeight = 0, clientHeight = 0, offsetWidth = 0, clientWidth = 0 } = getElement();
+			const { offsetHeight, clientHeight, offsetWidth, clientWidth } = getElement();
 			const scrollbarHeight = offsetHeight - clientHeight;
 			const scrollbarWidth = offsetWidth - clientWidth;
 			setHeight((h) => (h !== scrollbarHeight ? scrollbarHeight : h));
