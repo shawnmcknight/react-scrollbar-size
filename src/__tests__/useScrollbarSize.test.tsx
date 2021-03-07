@@ -1,13 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { act } from 'react-dom/test-utils';
 import { render, screen } from '@testing-library/react';
+import { mockClientDimensions, mockOffsetDimensions } from '../../test/mockDimensions';
 import useScrollbarSize from '../useScrollbarSize';
-
-// get the current sizes so they can be reverted
-let originalOffsetHeight: PropertyDescriptor;
-let originalOffsetWidth: PropertyDescriptor;
-let originalClientHeight: PropertyDescriptor;
-let originalClientWidth: PropertyDescriptor;
 
 const ScrollbarSizeExample: FunctionComponent = () => {
 	const { height, width } = useScrollbarSize();
@@ -20,29 +15,23 @@ const ScrollbarSizeExample: FunctionComponent = () => {
 	);
 };
 
+const offsetDimensionsMocker = mockOffsetDimensions();
+const clientDimensionsMocker = mockClientDimensions();
+
 beforeAll(() => {
-	originalOffsetHeight =
-		Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight') ?? {};
-	originalOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth') ?? {};
-	originalClientHeight =
-		Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight') ?? {};
-	originalClientWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientWidth') ?? {};
+	// set to base state before all tests
+	clientDimensionsMocker.mock(0, 0);
 });
 
 beforeEach(() => {
-	// reset to a clean base state before each test
-	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 50 });
-	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 50 });
-	Object.defineProperty(HTMLElement.prototype, 'clientHeight', { value: 0 });
-	Object.defineProperty(HTMLElement.prototype, 'clientWidth', { value: 0 });
+	// reset to base state before each test
+	offsetDimensionsMocker.mock(50, 50);
 });
 
 afterAll(() => {
 	// reset sizes to their original values
-	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', originalOffsetHeight);
-	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', originalOffsetWidth);
-	Object.defineProperty(HTMLElement.prototype, 'clientHeight', originalClientHeight);
-	Object.defineProperty(HTMLElement.prototype, 'clientWidth', originalClientWidth);
+	offsetDimensionsMocker.unmock();
+	clientDimensionsMocker.unmock();
 });
 
 test('should set measurements on initial render', () => {
@@ -62,8 +51,7 @@ test('should set measurements on first resize event', () => {
 		render(<ScrollbarSizeExample />);
 	});
 
-	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
-	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
+	offsetDimensionsMocker.mock(17, 27);
 	act(() => {
 		window.dispatchEvent(new window.Event('resize'));
 		jest.advanceTimersByTime(100);
@@ -80,8 +68,7 @@ test('should not change measurements when scrollbar size is unchanged', () => {
 		render(<ScrollbarSizeExample />);
 	});
 
-	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
-	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
+	offsetDimensionsMocker.mock(17, 27);
 	act(() => {
 		window.dispatchEvent(new window.Event('resize'));
 		jest.advanceTimersByTime(100);
@@ -104,15 +91,14 @@ test('should set height each time scrollbar height changes', () => {
 		render(<ScrollbarSizeExample />);
 	});
 
-	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
-	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
+	offsetDimensionsMocker.mock(17, 27);
 	act(() => {
 		window.dispatchEvent(new window.Event('resize'));
 		jest.advanceTimersByTime(100);
 	});
 
 	// resize again
-	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 37 });
+	offsetDimensionsMocker.mockHeight(37);
 	act(() => {
 		window.dispatchEvent(new window.Event('resize'));
 		jest.advanceTimersByTime(100);
@@ -129,15 +115,14 @@ test('should set width each time scrollbar width changes', () => {
 		render(<ScrollbarSizeExample />);
 	});
 
-	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
-	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
+	offsetDimensionsMocker.mock(17, 27);
 	act(() => {
 		window.dispatchEvent(new window.Event('resize'));
 		jest.advanceTimersByTime(100);
 	});
 
 	// resize again
-	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 37 });
+	offsetDimensionsMocker.mockWidth(37);
 	act(() => {
 		window.dispatchEvent(new window.Event('resize'));
 		jest.advanceTimersByTime(100);
@@ -154,8 +139,7 @@ test('should not change sizes if the resize event is not fired', () => {
 		render(<ScrollbarSizeExample />);
 	});
 
-	Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { value: 17 });
-	Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 27 });
+	offsetDimensionsMocker.mock(17, 27);
 
 	const height = screen.getByText(/height/i);
 	const width = screen.getByText(/width/i);
