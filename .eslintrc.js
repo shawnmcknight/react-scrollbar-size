@@ -1,6 +1,7 @@
 module.exports = {
 	extends: [
 		'airbnb',
+		'plugin:react-hooks/recommended',
 		'plugin:jest/recommended',
 		'plugin:jest/style',
 		'plugin:@typescript-eslint/recommended',
@@ -9,7 +10,7 @@ module.exports = {
 	],
 	env: { browser: true, es6: true, node: true, jest: true },
 	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint', 'react-hooks', 'jest'],
+	plugins: ['@typescript-eslint', 'jest'],
 	rules: {
 		// enforce curly brace usage
 		curly: ['error', 'all'],
@@ -48,7 +49,14 @@ module.exports = {
 			},
 		},
 		{
-			files: ['**/scripts/**', '**/example/**', '**/__tests__/**', '**/*.test.ts', '**/*.test.tsx'],
+			files: [
+				'**/scripts/**',
+				'**/example/**',
+				'**/example-component/**',
+				'**/__tests__/**',
+				'**/*.test.ts',
+				'**/*.test.tsx',
+			],
 			rules: {
 				// allow dev dependencies
 				'import/no-extraneous-dependencies': [

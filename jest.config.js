@@ -2,6 +2,7 @@ module.exports = {
 	resetMocks: true, // clear history and reset behavior of mocks between each test
 	restoreMocks: true, // restore initial behavior of mocked functions
 	moduleFileExtensions: ['js', 'ts', 'tsx'],
+	setupFilesAfterEnv: ['./test/jest-setup.ts'],
 	collectCoverageFrom: [
 		'**/src/**/*.ts', // typescript files
 		'**/src/**/*.tsx', // typescript files that render JSX

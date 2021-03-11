@@ -1,5 +1,5 @@
-import React, { CSSProperties, FunctionComponent, useState } from 'react';
-import ScrollbarSize, { ScrollbarSizeChangeHandlerParams } from '../src';
+import React, { CSSProperties, FunctionComponent } from 'react';
+import { useScrollbarSize } from '../src';
 
 const styles: CSSProperties = {
 	margin: '1rem',
@@ -7,28 +7,16 @@ const styles: CSSProperties = {
 };
 
 const ScrollbarSizeDemo: FunctionComponent = () => {
-	const [currentHeight, setHeight] = useState(0);
-	const [currentWidth, setWidth] = useState(0);
-
-	const scrollbarSizeChange = ({ height, width }: ScrollbarSizeChangeHandlerParams) => {
-		if (height !== currentHeight) {
-			setHeight(height);
-		}
-
-		if (width !== currentWidth) {
-			setWidth(width);
-		}
-	};
+	const { height, width } = useScrollbarSize();
 
 	return (
 		<div style={styles}>
 			<h2>React Scrollbar Size Demo</h2>
 			<h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
-			<ScrollbarSize onChange={scrollbarSizeChange} />
 			<p>
-				{`The current height of the scrollbar is ${currentHeight}px.`}
+				The current height of the scrollbar is {height}px.
 				<br />
-				{`The current width of the scrollbar is ${currentWidth}px.`}
+				The current width of the scrollbar is {width}px.
 			</p>
 		</div>
 	);

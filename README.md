@@ -1,7 +1,7 @@
 # React-Scrollbar-Size
 <div align="center">
 
-React-Scrollbar-Size is a [React](https://reactjs.org/) component designed to calculate the size of the user agent's horizontal and vertical scrollbars.
+React-Scrollbar-Size is a [React](https://reactjs.org/) hook designed to calculate the size of the user agent's horizontal and vertical scrollbars.
 It will also detect when the size of the scrollbars change, such as when the user agent's zoom factor changes.
 
 [![npm package](https://img.shields.io/npm/v/react-scrollbar-size/latest.svg)](https://www.npmjs.com/package/react-scrollbar-size)
@@ -29,26 +29,22 @@ $ npm install react-scrollbar-size
 ```
 
 ## Usage
+The `useScrollbarSize` custom hook returns an object with two properties:
 
-### Props
-| Name | Description |
-| ---- | ---- |
-| `onChange` | Callback which will fire when the scrollbar sizes change. |
+| Name     | Description                                    |
+| -------- | ---------------------------------------------- |
+| `width`  | The current width of the vertical scrollbar    |
+| `height` | The current height of the horizontal scrollbar |
 
-The callback accepts an object which will be updated with the following properties:
-
-| Name | Description |
-| ---- | ---- |
-| `width` | The current width of the vertical scrollbar. |
-| `height` | The current height of the horizontal scrollbar. |
+:information_source: The component syntax will be deprecated in version 4. It is currently being provided for backwards compatibility.
 
 ## Examples
 To see a live example, follow these [instructions](/example/README.md).
 
 ### TypeScript
 ```tsx
-import React, { CSSProperties, FunctionComponent, useState } from 'react';
-import ScrollbarSize from 'react-scrollbar-size';
+import React, { CSSProperties, FunctionComponent } from 'react';
+import { useScrollbarSize } from 'react-scrollbar-size';
 
 const styles: CSSProperties = {
   margin: '1rem',
@@ -56,28 +52,16 @@ const styles: CSSProperties = {
 };
 
 const ScrollbarSizeDemo: FunctionComponent = () => {
-  const [currentHeight, setHeight] = useState(0);
-  const [currentWidth, setWidth] = useState(0);
-
-  const scrollbarSizeChange = ({ height, width }: ScrollbarSizeChangeHandlerParams) => {
-    if (height !== currentHeight) {
-      setHeight(height);
-    }
-
-    if (width !== currentWidth) {
-      setWidth(width);
-    }
-  };
+  const { height, width } = useScrollbarSize();
 
   return (
     <div style={styles}>
       <h2>React Scrollbar Size Demo</h2>
       <h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
-      <ScrollbarSize onChange={scrollbarSizeChange} />
       <p>
-        {`The current height of the scrollbar is ${currentHeight}px.`}
+        The current height of the scrollbar is {height}px.
         <br />
-        {`The current width of the scrollbar is ${currentWidth}px.`}
+        The current width of the scrollbar is {width}px.
       </p>
     </div>
   );
@@ -86,8 +70,8 @@ const ScrollbarSizeDemo: FunctionComponent = () => {
 
 ### JavaScript
 ```jsx
-import React, { useState } from 'react';
-import ScrollbarSize from 'react-scrollbar-size';
+import React from 'react';
+import { useScrollbarSize } from 'react-scrollbar-size';
 
 const styles = {
   margin: '1rem',
@@ -95,28 +79,16 @@ const styles = {
 };
 
 const ScrollbarSizeDemo = () => {
-  const [currentHeight, setHeight] = useState(0);
-  const [currentWidth, setWidth] = useState(0);
-
-  const scrollbarSizeChange = ({ height, width }) => {
-    if (height !== currentHeight) {
-      setHeight(height);
-    }
-
-    if (width !== currentWidth) {
-      setWidth(width);
-    }
-  };
+  const { height, width } = useScrollbarSize();
 
   return (
     <div style={styles}>
       <h2>React Scrollbar Size Demo</h2>
       <h4>Tip: Change browser zoom level to see scrollbar sizes change.</h4>
-      <ScrollbarSize onChange={scrollbarSizeChange} />
       <p>
-        {`The current height of the scrollbar is ${currentHeight}px.`}
+        The current height of the scrollbar is {height}px.
         <br />
-        {`The current width of the scrollbar is ${currentWidth}px.`}
+        The current width of the scrollbar is {width}px.
       </p>
     </div>
   );

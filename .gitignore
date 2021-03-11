@@ -1,6 +1,6 @@
 ### directories
 # parcel cache folder
-.cache
+.parcel-cache
 # build folder
 build
 # test coverage
