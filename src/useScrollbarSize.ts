@@ -9,8 +9,7 @@ export interface ScrollbarMeasurements {
 }
 
 const useScrollbarSize = (): ScrollbarMeasurements => {
-	const [height, setHeight] = useState(0);
-	const [width, setWidth] = useState(0);
+	const [dimensions, setDimensions] = useState({ height: 0, width: 0 });
 	const element = useRef<HTMLDivElement | null>(null);
 
 	// initialize resize event handler and state when mounted
@@ -34,8 +33,13 @@ const useScrollbarSize = (): ScrollbarMeasurements => {
 			const { offsetHeight, clientHeight, offsetWidth, clientWidth } = getElement();
 			const scrollbarHeight = offsetHeight - clientHeight;
 			const scrollbarWidth = offsetWidth - clientWidth;
-			setHeight((h) => (h !== scrollbarHeight ? scrollbarHeight : h));
-			setWidth((w) => (w !== scrollbarWidth ? scrollbarWidth : w));
+
+			setDimensions((currentDimensions) => {
+				const { height, width } = currentDimensions;
+				return height !== scrollbarHeight || width !== scrollbarWidth
+					? { height: scrollbarHeight, width: scrollbarWidth }
+					: currentDimensions;
+			});
 		};
 
 		const handleResize = debounce(updateState, 100);
@@ -45,15 +49,16 @@ const useScrollbarSize = (): ScrollbarMeasurements => {
 		document.body.appendChild(getElement());
 		updateState();
 
+		const elementToRemove = getElement();
 		// cleanup
 		return () => {
 			handleResize.cancel();
 			window.removeEventListener('resize', handleResize);
-			document.body.removeChild(getElement());
+			document.body.removeChild(elementToRemove);
 		};
 	}, []);
 
-	return { height, width };
+	return dimensions;
 };
 
 export default useScrollbarSize;

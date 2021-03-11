@@ -3,7 +3,7 @@
 This is an example package for React-Scrollbar-Size.
 
 ## Requirements
-- [Node](https://nodejs.org) 14.0 or newer
+- [Node](https://nodejs.org) 12.0 or newer
 
 ## Installation
 After cloning the repository, install dependencies:

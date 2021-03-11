@@ -5,7 +5,7 @@ This is an example package for React-Scrollbar-Size.
 :warning: The componnt syntax in this example will be deprecated in version 4.  The [hook](/example/README.md) syntax should be used in favor of this.
 
 ## Requirements
-- [Node](https://nodejs.org) 14.0 or newer
+- [Node](https://nodejs.org) 12.0 or newer
 
 ## Installation
 After cloning the repository, install dependencies:
