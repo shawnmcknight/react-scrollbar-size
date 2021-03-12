@@ -1,5 +1,10 @@
 ## HEAD
 
+## 3.2.0
+###### _2021_03_11_
+- Updated library to export a custom hook to provide the same functionality as the component syntax.  This is much easier to use as a consumer. ([#263](https://github.com/shawnmcknight/react-scrollbar-size/pull/263) by [@shawnmcknight](https://github.com/shawnmcknight))
+  - The component syntax is now considered legacy and will be deprecated in a future major release.
+
 ## 3.1.1
 ###### _2021_03_06_
 - Update links to reference new repository location and main branch ([#260](https://github.com/shawnmcknight/react-scrollbar-size/pull/260) by [@shawnmcknight](https://github.com/shawnmcknight))
