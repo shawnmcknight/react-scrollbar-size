@@ -1,5 +1,5 @@
 import React, { CSSProperties, FunctionComponent } from 'react';
-import { useScrollbarSize } from '../src';
+import useScrollbarSize from '../src';
 
 const styles: CSSProperties = {
 	margin: '1rem',
