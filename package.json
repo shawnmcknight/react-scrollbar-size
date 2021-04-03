@@ -2,7 +2,7 @@
   "name": "react-scrollbar-size",
   "private": true,
   "version": "3.2.0",
-  "description": "React component to calculate the size of browser scrollbars",
+  "description": "React hook to calculate the size of browser scrollbars",
   "main": "index.js",
   "scripts": {
     "build": "npm run build:babel && npm run build:declaration && npm run build:copy-files",
@@ -13,8 +13,6 @@
     "clean:build": "rimraf build",
     "example": "parcel ./example/index.html",
     "example:debug": "cross-env BABEL_ENV=debug && parcel ./example/index.html",
-    "example:component": "parcel ./example-component/index.html",
-    "example:component:debug": "cross-env BABEL_ENV=debug && parcel ./example-component/index.html",
     "lint": "eslint . --ext js,ts,tsx --cache && echo \"eslint: no lint errors\"",
     "lint:fix": "eslint . --ext js,ts,tsx --fix",
     "prebuild": "npm run clean:build",

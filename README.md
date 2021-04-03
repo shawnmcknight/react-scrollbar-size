@@ -36,15 +36,13 @@ The `useScrollbarSize` custom hook returns an object with two properties:
 | `width`  | The current width of the vertical scrollbar    |
 | `height` | The current height of the horizontal scrollbar |
 
-:information_source: The component syntax will be deprecated in version 4. It is currently being provided for backwards compatibility.
-
 ## Examples
 To see a live example, follow these [instructions](/example/README.md).
 
 ### TypeScript
 ```tsx
 import React, { CSSProperties, FunctionComponent } from 'react';
-import { useScrollbarSize } from 'react-scrollbar-size';
+import useScrollbarSize from 'react-scrollbar-size';
 
 const styles: CSSProperties = {
   margin: '1rem',
@@ -71,7 +69,7 @@ const ScrollbarSizeDemo: FunctionComponent = () => {
 ### JavaScript
 ```jsx
 import React from 'react';
-import { useScrollbarSize } from 'react-scrollbar-size';
+import useScrollbarSize from 'react-scrollbar-size';
 
 const styles = {
   margin: '1rem',
