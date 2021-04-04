@@ -24,8 +24,10 @@ It will also detect when the size of the scrollbars change, such as when the use
 ## Installation
 React-Scrollbar-Size is available as an [npm package](https://www.npmjs.com/package/react-scrollbar-size):
 
+:information_source: The examples referenced here relate to the 4.0.0 release candidate, which can be installed using the `next` tag.  Earlier versions of the custom hook syntax can be viewed [here](https://github.com/shawnmcknight/react-scrollbar-size/blob/3.2.0/README.md).  Earlier versions of the legacy component syntax can be viewed [here](https://github.com/shawnmcknight/react-scrollbar-size/blob/3.1.1/README.md).
+
 ```sh
-$ npm install react-scrollbar-size
+$ npm install react-scrollbar-size@next
 ```
 
 ## Usage

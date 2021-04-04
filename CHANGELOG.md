@@ -1,5 +1,10 @@
 ## HEAD
 
+## 4.0.0-rc.0
+###### _2021_04_04_
+**BREAKING CHANGE**
+- Deprecated the legacy component syntax in favor of the custom hook syntax introduced in [#263](https://github.com/shawnmcknight/react-scrollbar-size/pull/263). The custom hook is now the default export from the library. See the [README](https://github.com/shawnmcknight/react-scrollbar-size/blob/main/README.md) for information on how to use the custom hook syntax. ([#309](https://github.com/shawnmcknight/react-scrollbar-size/pull/309) by [@shawnmcknight](https://github.com/shawnmcknight))
+
 ## 3.2.0
 ###### _2021_03_11_
 - Updated library to export a custom hook to provide the same functionality as the component syntax.  This is much easier to use as a consumer. ([#263](https://github.com/shawnmcknight/react-scrollbar-size/pull/263) by [@shawnmcknight](https://github.com/shawnmcknight))
@@ -32,7 +37,7 @@
   - The API has been changed significantly; there are no longer separate `onLoad` and `onChange` props in favor of a single `onChange` prop.  The callback for `onChange` returns `height` and `width` instead of `scrollbarHeight` and `scrollbarWidth`.
 
 ## 2.1.0
-###### _2020-01-31_
+###### _2018-01-31_
 - Lodash as a peerDependency was causing missing peerDependency errors.  Lodash peerDep replaced with stifle dep (#7 by [@shawnmcknight](https://github.com/shawnmcknight))
 - Bump several dependency versions
 - Configure npm to not generate package-lock file
