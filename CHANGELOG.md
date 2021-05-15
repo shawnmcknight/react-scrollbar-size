@@ -1,5 +1,10 @@
 ## HEAD
 
+## 4.0.0
+###### _2021_05_15_
+**BREAKING CHANGE**
+- Deprecated the legacy component syntax in favor of the custom hook syntax introduced in [#263](https://github.com/shawnmcknight/react-scrollbar-size/pull/263). The custom hook is now the default export from the library. See the [README](https://github.com/shawnmcknight/react-scrollbar-size/blob/main/README.md) for information on how to use the custom hook syntax. ([#309](https://github.com/shawnmcknight/react-scrollbar-size/pull/309) by [@shawnmcknight](https://github.com/shawnmcknight))
+
 ## 4.0.0-rc.0
 ###### _2021_04_04_
 **BREAKING CHANGE**
