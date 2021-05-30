@@ -1,4 +1,5 @@
 module.exports = {
+	testEnvironment: 'jsdom',
 	resetMocks: true, // clear history and reset behavior of mocks between each test
 	restoreMocks: true, // restore initial behavior of mocked functions
 	moduleFileExtensions: ['js', 'ts', 'tsx'],
