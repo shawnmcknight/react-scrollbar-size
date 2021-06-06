@@ -51,7 +51,7 @@
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
-    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@types/fs-extra": "^9.0.11",
     "@types/node": "^15.6.1",
