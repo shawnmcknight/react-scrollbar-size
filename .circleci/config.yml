@@ -12,7 +12,8 @@ jobs:
       - checkout
       - node/install:
           node-version: << parameters.node-version >>
-      - node/install-packages
+      - node/install-packages:
+          include-branch-in-cache-key: false
       - run:
           name: Node version
           command: node -v
