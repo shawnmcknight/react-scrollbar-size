@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node@4.2.0
+  node: circleci/node@4.5.1
 jobs:
   test:
     docker:
@@ -12,7 +12,8 @@ jobs:
       - checkout
       - node/install:
           node-version: << parameters.node-version >>
-      - node/install-packages
+      - node/install-packages:
+          include-branch-in-cache-key: false
       - run:
           name: Node version
           command: node -v
@@ -35,5 +36,5 @@ workflows:
           matrix:
             parameters:
               node-version:
-                - 14.16.0
-                - 15.11.0
+                - 14.17.2
+                - 16.4.1
