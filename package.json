@@ -72,7 +72,7 @@
     "fs-extra": "^10.0.0",
     "jest": "^27.0.6",
     "normalize.css": "^8.0.1",
-    "parcel": "^2.0.0-nightly.750",
+    "parcel": "^2.0.0-nightly.763",
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
