@@ -32,6 +32,7 @@ module.exports = {
 		// no-use-before-define does not work with eslint plugin; enable the plugin's rule
 		'no-use-before-define': 'off',
 		'@typescript-eslint/no-use-before-define': 'error',
+		'react/function-component-definition': 'off',
 	},
 	settings: {
 		'import/resolver': {
