@@ -77,8 +77,6 @@ module.exports = {
 				'jest/no-standalone-expect': 'error',
 				// disallow returning from test
 				'jest/no-test-return-statement': 'error',
-				// disallow truthy and falsy in tests
-				'jest/no-truthy-falsy': 'error',
 				// prefer called with
 				'jest/prefer-called-with': 'error',
 			},
