@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { act } from 'react-dom/test-utils';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { mockClientDimensions, mockOffsetDimensions } from '../../test/mockDimensions';
 import useScrollbarSize from '../useScrollbarSize';
 
@@ -35,9 +34,7 @@ afterAll(() => {
 });
 
 test('should set measurements on initial render', () => {
-	act(() => {
-		render(<ScrollbarSizeExample />);
-	});
+	render(<ScrollbarSizeExample />);
 
 	const height = screen.getByText(/height/i);
 	const width = screen.getByText(/width/i);
@@ -47,9 +44,7 @@ test('should set measurements on initial render', () => {
 });
 
 test('should set measurements on first resize event', () => {
-	act(() => {
-		render(<ScrollbarSizeExample />);
-	});
+	render(<ScrollbarSizeExample />);
 
 	offsetDimensionsMocker.mock(17, 27);
 	act(() => {
@@ -64,9 +59,7 @@ test('should set measurements on first resize event', () => {
 });
 
 test('should not change measurements when scrollbar size is unchanged', () => {
-	act(() => {
-		render(<ScrollbarSizeExample />);
-	});
+	render(<ScrollbarSizeExample />);
 
 	offsetDimensionsMocker.mock(17, 27);
 	act(() => {
@@ -87,9 +80,7 @@ test('should not change measurements when scrollbar size is unchanged', () => {
 });
 
 test('should set height each time scrollbar height changes', () => {
-	act(() => {
-		render(<ScrollbarSizeExample />);
-	});
+	render(<ScrollbarSizeExample />);
 
 	offsetDimensionsMocker.mock(17, 27);
 	act(() => {
@@ -111,9 +102,7 @@ test('should set height each time scrollbar height changes', () => {
 });
 
 test('should set width each time scrollbar width changes', () => {
-	act(() => {
-		render(<ScrollbarSizeExample />);
-	});
+	render(<ScrollbarSizeExample />);
 
 	offsetDimensionsMocker.mock(17, 27);
 	act(() => {
@@ -135,9 +124,7 @@ test('should set width each time scrollbar width changes', () => {
 });
 
 test('should not change sizes if the resize event is not fired', () => {
-	act(() => {
-		render(<ScrollbarSizeExample />);
-	});
+	render(<ScrollbarSizeExample />);
 
 	offsetDimensionsMocker.mock(17, 27);
 
