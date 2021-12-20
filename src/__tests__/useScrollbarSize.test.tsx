@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-// import act from testing library
 import { act, render, screen } from '@testing-library/react';
 import { mockClientDimensions, mockOffsetDimensions } from '../../test/mockDimensions';
 import useScrollbarSize from '../useScrollbarSize';
