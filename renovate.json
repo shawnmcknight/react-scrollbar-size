@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "config:base",
+    ":onlyNpm",
+    ":automergeTypes",
+    ":automergeMinor",
+    ":rebaseStalePrs",
+    ":prHourlyLimit4",
+    ":label(dependencies)"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "rangeStrategy": "pin"
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "matchDepTypes": ["engines"],
+      "rangeStrategy": "auto"
+    }
+  ]
+}
