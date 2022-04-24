@@ -10,7 +10,6 @@ It will also detect when the size of the scrollbars change, such as when the use
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/shawnmcknight/react-scrollbar-size)](https://codeclimate.com/github/shawnmcknight/react-scrollbar-size)
 [![Code Style](https://badgen.net/badge/eslint/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 [![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=shawnmcknight/react-scrollbar-size)](https://dependabot.com)
 [![Dependencies](https://david-dm.org/shawnmcknight/react-scrollbar-size/main/status.svg)](https://david-dm.org/shawnmcknight/react-scrollbar-size/main)
 [![PeerDependencies](https://david-dm.org/shawnmcknight/react-scrollbar-size/main/peer-status.svg)](https://david-dm.org/shawnmcknight/react-scrollbar-size/main?type=peer)
 [![DevDependencies](https://david-dm.org/shawnmcknight/react-scrollbar-size/dev-status.svg)](https://david-dm.org/shawnmcknight/react-scrollbar-size/main?type=dev)
