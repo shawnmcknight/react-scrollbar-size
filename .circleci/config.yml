@@ -24,6 +24,9 @@ jobs:
           name: Validate TS types
           command: npm run typecheck
       - run:
+          name: Validate prettier rules
+          command: npm run prettier
+      - run:
           name: Run eslint
           command: npm run lint
       - run:
@@ -36,5 +39,6 @@ workflows:
           matrix:
             parameters:
               node-version:
-                - 14.17.2
-                - 16.4.1
+                - 14.19.1
+                - 16.15.0
+                - 18.0.0
