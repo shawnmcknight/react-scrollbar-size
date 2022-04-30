@@ -43,7 +43,6 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.1 || ^18.0.0"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "7.17.10",
     "@babel/core": "7.17.10",
@@ -70,7 +69,8 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.5.0",
     "fs-extra": "10.1.0",
-    "jest": "27.5.1",
+    "jest": "28.0.3",
+    "jest-environment-jsdom": "28.0.2",
     "normalize.css": "8.0.1",
     "parcel": "2.5.0",
     "prettier": "2.6.2",

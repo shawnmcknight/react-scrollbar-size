@@ -17,5 +17,7 @@ module.exports = {
 			lines: 100,
 		},
 	},
-	timers: 'modern',
+	fakeTimers: {
+		enableGlobally: true,
+	},
 };
