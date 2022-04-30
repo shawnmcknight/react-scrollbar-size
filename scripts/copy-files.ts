@@ -2,65 +2,50 @@
 import path from 'path';
 import fse from 'fs-extra';
 
-/** List of files to copy to build folder */
-const files = ['README.md', 'CHANGELOG.md', 'LICENSE'];
-
-/** Resolve the build folder path */
-const resolveBuildPath = (file: string) =>
-	path.resolve(process.cwd(), './build', path.basename(file));
-
-/** Copy a file */
-const copyFile = async (file: string) => {
-	const buildPath = resolveBuildPath(file);
-
-	await fse.copy(file, buildPath);
-	console.log(`Copied ${file} to ${buildPath}`);
-};
+/** Build output path */
+const buildPath = path.resolve(process.cwd(), './dist');
 
 /** Create a minimal package.json file in the build folder */
-const createPackageFile = async () => {
-	const packageFile = await fse.readFile(path.resolve(process.cwd(), './package.json'), 'utf8');
-	const {
-		name,
-		version,
-		description,
-		main,
-		repository,
-		keywords,
-		author,
-		license,
-		bugs,
-		homepage,
-		peerDependencies,
-		dependencies,
-	} = JSON.parse(packageFile);
+const createPackageFile = async (): Promise<void> => {
+	const source = path.resolve(process.cwd(), './package.json');
+	const packageFile = await fse.readFile(source, 'utf8');
+	const { scripts, devDependencies, prettier, ...packageDataOther } = JSON.parse(packageFile);
 
-	const minimalPackage = JSON.stringify(
-		{
-			name,
-			version,
-			description,
-			main,
-			repository,
-			keywords,
-			author,
-			license,
-			bugs,
-			homepage,
-			peerDependencies,
-			dependencies,
-		},
-		null,
-		'\t',
-	);
+	const newPackageData = {
+		...packageDataOther,
+		private: false,
+	};
 
-	const buildPath = resolveBuildPath('package.json');
-	await fse.writeFile(buildPath, minimalPackage);
-	console.log(`Created package.json in ${buildPath}`);
+	const minimalPackage = JSON.stringify(newPackageData, null, 2);
+
+	const target = path.resolve(buildPath, './package.json');
+
+	await fse.writeFile(target, minimalPackage, 'utf8');
+	console.log(`Created package.json in ${target}`);
+};
+
+/** Copy the specified file to the build folder */
+const copyFile = async (fileName: string): Promise<void> => {
+	const target = path.resolve(buildPath, path.basename(fileName));
+	await fse.copy(fileName, target);
+
+	console.log(`Copied ${fileName} to ${target}`);
+};
+
+/** Copy meta files to build folder */
+const copyMeta = async (): Promise<void> => {
+	const filesToCopy = ['README.md', 'CHANGELOG.md', 'LICENSE', path.join('src', 'manifest.json')];
+
+	await Promise.all(filesToCopy.map((fileName) => copyFile(fileName)));
+
+	console.log('Successfully copied all meta files');
 };
 
 // launch copy tasks
-(async () => {
-	await Promise.all([createPackageFile(), Promise.all(files.map((file) => copyFile(file)))]);
-	console.log('Copy files complete');
-})();
+Promise.all([copyMeta(), createPackageFile()])
+	.then(() => {
+		console.log('All files copied successfully');
+	})
+	.catch((err) => {
+		console.error('Error copying files', err);
+	});

@@ -1,12 +1,12 @@
 ### directories
 # parcel cache folder
 .cache
-# build folder
-build
+# dist folder
+dist
 # test coverage
 coverage
 # parcel dist folder
-dist
+example_dist
 # installed modules
 node_modules
 

@@ -2,7 +2,7 @@
 # installed modules
 node_modules
 # build folder
-build
 dist
+example_dist
 # test coverage
 coverage
