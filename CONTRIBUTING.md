@@ -80,11 +80,16 @@ Ensures that all TypeScript typings are valid and the TypeScript compiler does n
 
 Ensures that code is styled according to the standards of the repository.
 
+###### prettier
+
+Ensures that code is formatted according to the standards of the repository.
+
 ### Coding style
 
 Please follow the coding style of the project. React-Scrollbar-Size uses prettier and eslint, so if possible, enable linting in your editor to get real-time feedback.
 
-- `npm run lint` runs manually the rules for both prettier and eslint.
+- `npm run lint` runs manually the rules for eslint.
+- `npm run prettier` runs manually the rules for prettier.
 
 Finally, when you submit a Pull Request, they are run again by our continuous integration tools, but hopefully, your code is already clean!
 
