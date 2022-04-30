@@ -45,7 +45,7 @@ To see a live example, follow these [instructions](/example/README.md).
 ### TypeScript
 
 ```tsx
-import React, { CSSProperties, FunctionComponent } from 'react';
+import { CSSProperties, FunctionComponent } from 'react';
 import useScrollbarSize from 'react-scrollbar-size';
 
 const styles: CSSProperties = {
@@ -73,7 +73,6 @@ const ScrollbarSizeDemo: FunctionComponent = () => {
 ### JavaScript
 
 ```jsx
-import React from 'react';
 import useScrollbarSize from 'react-scrollbar-size';
 
 const styles = {
