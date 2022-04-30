@@ -34,7 +34,7 @@ const copyFile = async (fileName: string): Promise<void> => {
 
 /** Copy meta files to build folder */
 const copyMeta = async (): Promise<void> => {
-	const filesToCopy = ['README.md', 'CHANGELOG.md', 'LICENSE', path.join('src', 'manifest.json')];
+	const filesToCopy = ['README.md', 'CHANGELOG.md', 'LICENSE'];
 
 	await Promise.all(filesToCopy.map((fileName) => copyFile(fileName)));
 
