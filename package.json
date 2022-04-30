@@ -8,7 +8,7 @@
     "build": "npm run build:babel && npm run build:declaration && npm run build:copy-files",
     "build:babel": "babel ./src --env-name build --extensions .ts,.tsx --out-dir ./dist",
     "build:copy-files": "babel-node --env-name script --extensions .ts ./scripts/copy-files.ts",
-    "build:declaration": "tsc --project tsconfig.build.json --declaration --emitDeclarationOnly --outDir ./dist",
+    "build:declaration": "tsc --project tsconfig.build.json --outDir ./dist",
     "clean": "npm run clean:build",
     "clean:build": "rimraf dist",
     "example": "parcel --open --dist-dir example_dist ./example/index.html",
