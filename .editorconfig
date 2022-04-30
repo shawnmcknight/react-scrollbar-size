@@ -12,6 +12,6 @@ insert_final_newline = true
 # unset will result in using the editor default
 [*.md]
 trim_trailing_whitespace = false
-[*.{js,jsx,ts,tsx,d.ts,css,html}]
+[*.{cjs,mjs,js,jsx,ts,tsx,d.ts,css,html}]
 indent_style = tab
 indent_size = unset

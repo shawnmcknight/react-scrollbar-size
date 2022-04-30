@@ -1,4 +1,4 @@
-const commonPresets = ['@babel/preset-react', '@babel/typescript'];
+const commonPresets = [['@babel/preset-react', { runtime: 'automatic' }], '@babel/typescript'];
 
 module.exports = {
 	ignore: ['**/*.d.ts'],
