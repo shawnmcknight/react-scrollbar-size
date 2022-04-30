@@ -9,23 +9,15 @@
       "request": "launch",
       "name": "Debug Unit Tests for current workspace file",
       "env": {
-        "BABEL_ENV": "debug",
+        "BABEL_ENV": "debug"
       },
       "program": "${workspaceFolder}/node_modules/jest/bin/jest",
-      "runtimeArgs": [
-        "--nolazy"
-      ],
-      "args": [
-        "${fileBasenameNoExtension}",
-        "--runInBand",
-        "--no-cache",
-      ],
+      "runtimeArgs": ["--nolazy"],
+      "args": ["${fileBasenameNoExtension}", "--runInBand", "--no-cache"],
       "sourceMaps": true,
       "outputCapture": "std",
       "console": "integratedTerminal",
-      "skipFiles": [
-        "<node_internals>/**/*.js"
-      ],
+      "skipFiles": ["<node_internals>/**/*.js"]
     },
     {
       "type": "chrome",
@@ -36,7 +28,7 @@
       "breakOnLoad": true,
       "sourceMapPathOverrides": {
         "../*": "${webRoot}/*"
-      },
-    },
-  ],
+      }
+    }
+  ]
 }

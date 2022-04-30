@@ -70,7 +70,7 @@ Ensures that code performs as expected under test scenarios.
 
 ##### test:coverage
 
-Monitors coverage of the tests.  There is a strict policy of enforcing 100% code coverage.  If something is not readily testable, the specific area can be ignored with an `istanbul ignore` comment, but an explanation of the rationale for ignoring should be included in the comment.
+Monitors coverage of the tests. There is a strict policy of enforcing 100% code coverage. If something is not readily testable, the specific area can be ignored with an `istanbul ignore` comment, but an explanation of the rationale for ignoring should be included in the comment.
 
 ##### typecheck
 
