@@ -1,4 +1,5 @@
 # React-Scrollbar-Size
+
 <div align="center">
 
 React-Scrollbar-Size is a [React](https://reactjs.org/) hook designed to calculate the size of the user agent's horizontal and vertical scrollbars.
@@ -21,6 +22,7 @@ It will also detect when the size of the scrollbars change, such as when the use
 </div>
 
 ## Installation
+
 React-Scrollbar-Size is available as an [npm package](https://www.npmjs.com/package/react-scrollbar-size):
 
 ```sh
@@ -28,6 +30,7 @@ $ npm install react-scrollbar-size
 ```
 
 ## Usage
+
 The `useScrollbarSize` custom hook returns an object with two properties:
 
 | Name     | Description                                    |
@@ -36,11 +39,13 @@ The `useScrollbarSize` custom hook returns an object with two properties:
 | `height` | The current height of the horizontal scrollbar |
 
 ## Examples
+
 To see a live example, follow these [instructions](/example/README.md).
 
 ### TypeScript
+
 ```tsx
-import React, { CSSProperties, FunctionComponent } from 'react';
+import { CSSProperties, FunctionComponent } from 'react';
 import useScrollbarSize from 'react-scrollbar-size';
 
 const styles: CSSProperties = {
@@ -66,8 +71,8 @@ const ScrollbarSizeDemo: FunctionComponent = () => {
 ```
 
 ### JavaScript
+
 ```jsx
-import React from 'react';
 import useScrollbarSize from 'react-scrollbar-size';
 
 const styles = {
@@ -93,5 +98,6 @@ const ScrollbarSizeDemo = () => {
 ```
 
 ## License
+
 This project is licensed under the terms of the
 [MIT license](/LICENSE).

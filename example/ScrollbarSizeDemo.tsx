@@ -1,4 +1,4 @@
-import React, { CSSProperties, FunctionComponent } from 'react';
+import type { CSSProperties, FunctionComponent } from 'react';
 import useScrollbarSize from '../src';
 
 const styles: CSSProperties = {

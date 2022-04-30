@@ -1,0 +1,8 @@
+### directories
+# installed modules
+node_modules
+# build folder
+dist
+example_dist
+# test coverage
+coverage

@@ -3,6 +3,7 @@
 <!-- Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change. -->
 
 ## Relevant issues :dart:
+
 <!-- Please indicate relevant open issue -->
 
 ## Type of change :gem:
@@ -14,9 +15,12 @@
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 
 ## Example code :scroll:
+
 <!-- Provide some example codes to illustrate how your change works -->
+
 ```tsx
-``` 
+
+```
 
 ## How Has This Been Tested? :vertical_traffic_light:
 
