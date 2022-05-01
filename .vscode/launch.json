@@ -22,12 +22,12 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "Debug Parcel via Chrome",
+      "name": "Launch Chrome against localhost",
       "url": "http://localhost:1234",
       "webRoot": "${workspaceFolder}",
       "breakOnLoad": true,
       "sourceMapPathOverrides": {
-        "../*": "${webRoot}/*"
+        "/__parcel_source_root/*": "${webRoot}/*"
       }
     }
   ]
