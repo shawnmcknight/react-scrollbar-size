@@ -3,6 +3,7 @@ const commonPresets = [['@babel/preset-react', { runtime: 'automatic' }], '@babe
 module.exports = {
 	ignore: ['**/*.d.ts'],
 	presets: [['@babel/preset-env', { targets: { node: true } }], ...commonPresets], // set base presets
+	plugins: ['@babel/plugin-transform-runtime'],
 	env: {
 		build: {
 			presets: ['@babel/preset-env', ...commonPresets], // override to target .browserslistrc
