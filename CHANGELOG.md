@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.0] - 2022-05-07
+
+### Breaking changes
+
+- Browser targets have been changed to the default targets of [browserslist](https://github.com/browserslist/browserslist#full-list) (`> 0.5%, last 2 versions, Firefox ESR, not dead`) plus `not ie 11`. Browsers outside of that range may be supported, but are not guaranteed. ([#705](https://github.com/shawnmcknight/react-scrollbar-size/pull/705))
+
+### Added
+
+- Disable dependabot ([#655](https://github.com/shawnmcknight/react-scrollbar-size/pull/655)) and enable renovate ([#656](https://github.com/shawnmcknight/react-scrollbar-size/pull/656))
+- Add support for React 18 ([#693](https://github.com/shawnmcknight/react-scrollbar-size/pull/693))
+- Improved CHANGELOG format ([#704](https://github.com/shawnmcknight/react-scrollbar-size/pull/704))
+
+### Fixed
+
+- Fix use of `act` in test scripts ([#598](https://github.com/shawnmcknight/react-scrollbar-size/pull/598))
+- Bypass `babel` for example launches to eliminate warnings emitted by parcel ([#705](https://github.com/shawnmcknight/react-scrollbar-size/pull/705))
+- Fix launch configuration for vscode debugging ([#705](https://github.com/shawnmcknight/react-scrollbar-size/pull/705))
+
 ## [4.0.0] - 2021-05-15
 
 ### Breaking changes
@@ -111,7 +129,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial creation of this repository! Thanks for using it!
 
-[unreleased]: https://github.com/shawnmcknight/react-scrollbar-size/compare/4.0.0...HEAD
+[unreleased]: https://github.com/shawnmcknight/react-scrollbar-size/compare/5.0.0...HEAD
+[5.0.0]: https://github.com/shawnmcknight/react-scrollbar-size/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/shawnmcknight/react-scrollbar-size/compare/4.0.0-rc.0...4.0.0
 [4.0.0-rc.0]: https://github.com/shawnmcknight/react-scrollbar-size/compare/3.2.0...4.0.0-rc.0
 [3.2.0]: https://github.com/shawnmcknight/react-scrollbar-size/compare/3.1.1...3.2.0
