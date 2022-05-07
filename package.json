@@ -4,6 +4,7 @@
   "version": "5.0.0",
   "description": "React hook to calculate the size of browser scrollbars",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "npm-run-all build:babel build:declaration build:copy-files",
     "build:babel": "babel ./src --env-name build --extensions .ts,.tsx --out-dir ./dist",
