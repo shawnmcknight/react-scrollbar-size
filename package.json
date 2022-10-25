@@ -61,7 +61,7 @@
     "@types/fs-extra": "9.0.13",
     "@types/node": "16.18.0",
     "@types/react": "18.0.22",
-    "@types/react-dom": "18.0.6",
+    "@types/react-dom": "18.0.7",
     "@typescript-eslint/eslint-plugin": "5.40.1",
     "@typescript-eslint/parser": "5.40.1",
     "cross-env": "7.0.3",
