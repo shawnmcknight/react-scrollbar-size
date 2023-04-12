@@ -60,7 +60,7 @@
     "@testing-library/react": "13.4.0",
     "@types/fs-extra": "9.0.13",
     "@types/node": "18.15.11",
-    "@types/react": "18.0.34",
+    "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
     "@typescript-eslint/eslint-plugin": "5.58.0",
     "@typescript-eslint/parser": "5.58.0",
