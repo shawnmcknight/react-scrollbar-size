@@ -50,10 +50,10 @@
     "react": "^16.8.0 || ^17.0.1 || ^18.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.22.6",
-    "@babel/core": "7.22.8",
+    "@babel/cli": "7.22.9",
+    "@babel/core": "7.22.9",
     "@babel/node": "7.22.6",
-    "@babel/preset-env": "7.22.7",
+    "@babel/preset-env": "7.22.9",
     "@babel/preset-react": "7.22.5",
     "@babel/preset-typescript": "7.22.5",
     "@testing-library/jest-dom": "5.16.5",
